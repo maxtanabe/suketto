@@ -1,0 +1,152 @@
+/* リセットCSS */
+body {
+  font-size: 14px;
+  color: #333;
+  margin: 0 auto;
+}
+
+h1,h2,h3,h4,h5,h6,p {
+  padding: 10px 0;
+  margin: 0;
+}
+
+ul,li {
+  padding: 0;
+  margin: 0;
+}
+
+/* ヘッダー */
+header {
+  height: 50px;
+  background-color: #53d53f;
+  padding: 10px 0;
+  display: flex;
+}
+
+.heading {
+  width: 50%;
+  margin-left: 30px;
+}
+
+.navbar {
+  width: 50%;
+  padding: 20px;
+}
+
+.nav-lists {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+li {
+  list-style: none;
+}
+
+/* first-viewクラスからbottom-contentクラスまでの要素の親要素 */
+.contents {
+
+  background-color: white;
+}
+
+.first-view{
+  height: 60vh;
+}
+
+.top-image {
+  height: 100%;
+  width: 100%;
+}
+
+/* 新着情報 */
+.upper-content{
+  height: 450px;
+  margin: 0 160px;
+}
+
+.heading-name {
+  text-align: center;
+  border-bottom: 1px solid red;
+  width: 200px;
+  margin: 40px auto;
+}
+
+.messages {
+  width: 50vw;
+  margin: 0 auto;
+}
+
+.message {
+  display: flex;
+  font-size: 18px;
+  margin: 0 0 16px 70px;
+}
+
+.message-date {
+  padding-right: 40px;
+}
+
+/* スタイリスト紹介 */
+.middle-content{
+  height: 450px;
+  margin: 0 160px;
+}
+.stylist-list {
+  display: flex;
+  justify-content: space-around;
+  margin: 60px 0;
+}
+
+.stylist-image {
+  height: 300px;
+}
+
+.stylist-name {
+  font-size: 16px;
+  text-align: center;
+}
+
+/* フォーム */
+.bottom-content {
+  height: 800px ;
+  margin: 0 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.small-field, .large-field {
+  width: 800px;
+  font-size: 16px;
+  padding: 15px;
+  border: 1px solid #b5aaaa;
+  display: block;
+}
+
+.small-field {
+  margin: 0 auto 15px;
+}
+
+.large-field {
+  height: 200px;
+  margin: 0 auto 30px;
+}
+
+.send {
+  width: 200px;
+  margin: 0 auto;
+  padding: 15px;
+  border: 1px solid white;
+  background-color: lightblue;
+  color:white;
+  display: block;
+}
+
+/* フッター */
+footer {
+  height: 50px;
+  background-color: #f0f0f0;
+  text-align: center;
+  color: gray;
+}

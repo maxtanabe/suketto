@@ -1,0 +1,85 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
+    <title>ピンチヒッター</title>
+      <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <header>
+      <div class="heading">
+        <h1 class="title"><a href="/">ピンチヒッター</a></h1>
+      </div>
+      <div class="navbar">
+        <ul class="nav-lists">
+          <li>新規登録</li>
+          <li>ログイン</li>
+          <li>特産品</li>
+          <li>スタッフブログ</li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="contents">
+      <div class="first-view">
+      <img src="images/hero.jpg" alt="トップ画面" class="top-image">
+      </div>
+      <div class="upper-content">
+        <h2 class="heading-name">新着情報</h2>
+        <ul class="messages">
+          <li class="message">
+            <div class="message-date">2019/10/06</div>
+            <div>【新規のお客さま限定】<b>10％OFF</b>キャンペーン</div>
+          </li>
+          <li class="message">
+            <div class="message-date">2019/10/03</div>
+            <div>うれしい<b>ポイントアップキャンペーン</b></div>
+          </li>
+          <li class="message">
+            <div class="message-date">2019/09/27</div>
+            <div>2020年成人式 ご予約承ります</div>
+          </li>
+          <li class="message">
+            <div class="message-date">2018/10/03</div>
+            <div>うれしい<b>ポイントアップキャンペーン</b></div>
+          </li>
+          <li class="message">
+            <div class="message-date">2018/09/27</div>
+            <div>2019年成人式 ご予約承ります</div>
+          </li>
+        </ul>
+      </div>
+      <div class="middle-content">
+        <h2 class="heading-name">スタイリスト紹介</h2>
+        <ul class="stylist-list">
+          <li>
+            <img src="images/staff1.jpg" alt="staff1" class="stylist-image">
+            <h4 class="stylist-name">鈴木</h4>
+          </li>
+          <li>
+            <img src="images/staff2.jpg" alt="staff2" class="stylist-image">
+            <h4 class="stylist-name">佐藤</h4>
+          </li>
+          <li>
+            <img src="images/staff3.jpg" alt="staff3" class="stylist-image">
+            <h4 class="stylist-name">山田</h4>
+          </li>
+        </ul>
+      </div>
+
+      <div class="bottom-content">
+        <form class="contact-form">
+          <h2 class="heading-name">助っ人に頼む</h2>
+          <input type="submit" value="投稿" class="send">
+        </form>
+      </div>
+
+    </div>
+
+    <footer>
+      <p>Copyright(C) Hair OLIVE ALL RIGHTS RESERVED.</p>
+    </footer>
+  </body>
+</html>
