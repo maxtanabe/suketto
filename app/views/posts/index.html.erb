@@ -3,75 +3,70 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
-    <title>ピンチヒッター</title>
+    <title>すけっと ~福井県版~</title>
       <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
       <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
     <header>
       <div class="heading">
-        <h1 class="title"><a href="/">ピンチヒッター</a></h1>
+        <h1 class="title">すけっと ~福井県版~</h1>
       </div>
       <div class="navbar">
         <ul class="nav-lists">
-          <li>新規登録</li>
-          <li>ログイン</li>
-          <li>特産品</li>
-          <li>スタッフブログ</li>
+        <% if user_signed_in? %>
+          <li>&#x1f3e0;おかえりなさい<%= link_to current_user.nickname, edit_user_path(current_user), class: "user-nickname" %>さん</li>
+          <li>&#x1f933;<%= link_to current_user.nickname, class: "user-nickname" %>さんのページ</li>
+          <li>&#x1f622;<%= link_to 'ログアウトする？', destroy_user_session_path, method: :delete, class: "logout" %></li>
+        <% else %>
+          <li><%= link_to 'ログインする？', new_user_session_path, class: "login" %></li>
+          <li><%= link_to '新規登録する？', new_user_registration_path, class: "sign-up" %></li>
+        <% end %>
         </ul>
       </div>
     </header>
 
     <div class="contents">
       <div class="first-view">
-      <img src="images/hero.jpg" alt="トップ画面" class="top-image">
+      <%= image_tag "top.png", class:"top-image" %>
       </div>
       <div class="upper-content">
-        <h2 class="heading-name">新着情報</h2>
+        <h2 class="heading-name">&#x1f60a;みんなのありがとう&#x1f60a;</h2>
         <ul class="messages">
           <li class="message">
-            <div class="message-date">2019/10/06</div>
-            <div>【新規のお客さま限定】<b>10％OFF</b>キャンペーン</div>
+            <div class="message-date">2020/01/03</div>
+            <div>坂井市の東尋坊で<b>ふれあい広場の手伝い</b></div>
           </li>
           <li class="message">
-            <div class="message-date">2019/10/03</div>
-            <div>うれしい<b>ポイントアップキャンペーン</b></div>
+            <div class="message-date">2020/01/02</div>
+            <div>福井市の故郷老人ホームで<b>書き初め大会</b></div>
           </li>
           <li class="message">
-            <div class="message-date">2019/09/27</div>
-            <div>2020年成人式 ご予約承ります</div>
+            <div class="message-date">2019/12/24</div>
+            <div>福井市の故郷老人ホームで<b>クリスマス会</b></div>
           </li>
           <li class="message">
-            <div class="message-date">2018/10/03</div>
-            <div>うれしい<b>ポイントアップキャンペーン</b></div>
+            <div class="message-date">2019/11/15</div>
+            <div>越前市の今村さん宅で<b>越前ガニ収穫後みんなでお食事</b></div>
           </li>
           <li class="message">
-            <div class="message-date">2018/09/27</div>
-            <div>2019年成人式 ご予約承ります</div>
+            <div class="message-date">2019/10/28</div>
+            <div>鯖江市の内藤さん宅で<b>キャベツ収穫</b></div>
           </li>
         </ul>
       </div>
       <div class="middle-content">
-        <h2 class="heading-name">スタイリスト紹介</h2>
+        <h2 class="heading-name">&#x1f91d;みんなのお手伝い&#x1f91d;</h2>
         <ul class="stylist-list">
           <li>
-            <img src="images/staff1.jpg" alt="staff1" class="stylist-image">
-            <h4 class="stylist-name">鈴木</h4>
-          </li>
-          <li>
-            <img src="images/staff2.jpg" alt="staff2" class="stylist-image">
-            <h4 class="stylist-name">佐藤</h4>
-          </li>
-          <li>
-            <img src="images/staff3.jpg" alt="staff3" class="stylist-image">
-            <h4 class="stylist-name">山田</h4>
+          <h1>ここにお手伝い一覧が入る</h1>
           </li>
         </ul>
       </div>
 
       <div class="bottom-content">
         <form class="contact-form">
-          <h2 class="heading-name">助っ人に頼む</h2>
+          <h2 class="heading-name">&#x1f933;お手伝いを依頼する？&#x1f933;</h2>
           <input type="submit" value="投稿" class="send">
         </form>
       </div>
@@ -79,7 +74,7 @@
     </div>
 
     <footer>
-      <p>Copyright(C) Hair OLIVE ALL RIGHTS RESERVED.</p>
+      <p>すけっと ~福井県版~ </p>
     </footer>
   </body>
 </html>

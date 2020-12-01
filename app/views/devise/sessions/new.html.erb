@@ -6,6 +6,7 @@
     </div>
     <div class='account-page__inner--right user-form'>
       <%= form_with model: resource, as: resource_name, url: session_path(resource_name), local: true do |f|%>
+      
         <div class='field'>
           <div class='field-label'>
             <%= f.label :email%>

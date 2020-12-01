@@ -1,19 +1,26 @@
 <div class='account-page' id='account-page'>
   <div class='account-page__inner clearfix'>
     <div class='account-page__inner--left account-page__header'>
-      <h2>Edit Account</h2>
-      <h5>アカウントの編集</h5>
-      <%= link_to "ログアウト", "#", class: 'btn'%>
-      <%= link_to "チャットページに戻る", :back, class: 'btn'%>
+      <h2>アカウントの編集</h2>
+      <%= link_to "ログアウトする？", destroy_user_session_path, method: :delete, class: 'btn'%>
+      <%= link_to "トップページに戻る？", root_path, class: 'btn'%>
     </div>
     <div class='account-page__inner--right user-form'>
       <%= form_with model: current_user, local: true do |f|%>
         <div class='field'>
           <div class='field-label'>
-            <%= f.label :name%>
+            <%= f.label :nickname%>
           </div>
           <div class='field-input'>
-            <%= f.text_field :name, autofocus: true%>
+            <%= f.text_field :nickname, autofocus: true%>
+          </div>
+        </div>
+          <div class='field'>
+          <div class='field-label'>
+            <%= f.label :birth_date%>
+          </div>
+          <div class='field-input'>
+            <%= f.date_select :birth_date, use_month_numbers: true,start_year: 1930,end_year: (Time.now.year - 10), default: Date.new(1989, 1, 1), autofocus: true%>
           </div>
         </div>
         <div class='field'>
