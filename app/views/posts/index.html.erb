@@ -68,12 +68,12 @@
       <div class="bottom-content">
         <form class="contact-form">
           <h2 class="heading-name">&#x1f933;お手伝いを依頼する？&#x1f933;</h2>
-          <input type="submit" value="投稿" class="send">
+          <%= link_to new_post_path, class: 'submit' do %>
+            <%= image_tag 'icon_camera.png' , size: '185x180' ,class: "purchase-btn-icon" %>
+          <% end %>
         </form>
       </div>
-
     </div>
-
     <footer>
       <p>すけっと ~福井県版~ </p>
     </footer>
