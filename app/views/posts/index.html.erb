@@ -30,7 +30,7 @@
       <%= image_tag "top.png", class:"top-image" %>
       </div>
       <div class="upper-content">
-        <h2 class="heading-name">&#x1f60a;みんなのありがとう&#x1f60a;</h2>
+        <h2 class="heading-name">最近のありがとう&#x1f60a;</h2>
         <ul class="messages">
           <li class="message">
             <div class="message-date">2020/01/03</div>
@@ -46,7 +46,7 @@
           </li>
           <li class="message">
             <div class="message-date">2019/11/15</div>
-            <div>越前市の今村さん宅で<b>越前ガニ収穫後みんなでお食事</b></div>
+            <div>越前市の今村さん宅で<b>越前ガニ収穫後みんなで食事</b></div>
           </li>
           <li class="message">
             <div class="message-date">2019/10/28</div>
@@ -55,17 +55,35 @@
         </ul>
       </div>
       <div class="middle-content">
-        <h2 class="heading-name">&#x1f91d;みんなのお手伝い&#x1f91d;</h2>
-        <ul class="stylist-list">
-          <li>
-          <h1>ここにお手伝い一覧が入る</h1>
-          </li>
-        </ul>
+        <h2 class="heading-name">みんなのお手伝い&#x1f91d;</h2>
+           <ul class='item-lists'>
+
+      <% if @posts.present? %>
+      <% @posts.each do |post| %>
+      <li class='list'>
+        <%= link_to root_path(post.id) do %>
+        
+        <div class='item-img-content'>
+        <video src=<%= rails_blob_path(post.video) %> type="video/mp4", controls></video>
+        </div>
+        <div class='item-info'>
+          <h3 class='item-name'>
+            <%= post.title %>
+          </h3>
+          <div class='item-price'>
+            <span>お小遣い<%= post.price %>円<br></span>
+          </div>
+        </div>
+        <% end %>
+      </li>
+      <% end %>
+      <% end %>
+    </ul>
       </div>
 
       <div class="bottom-content">
         <form class="contact-form">
-          <h2 class="heading-name">&#x1f933;お手伝いを依頼する？&#x1f933;</h2>
+          <h2 class="heading-name">お手伝いを依頼する
           <%= link_to new_post_path, class: 'submit' do %>
             <%= image_tag 'icon_camera.png' , size: '185x180' ,class: "purchase-btn-icon" %>
           <% end %>
