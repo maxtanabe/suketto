@@ -59,28 +59,26 @@
            <ul class='item-lists'>
 
       <% if @posts.present? %>
+      
       <% @posts.each do |post| %>
       <li class='list'>
-        <%= link_to root_path(post.id) do %>
-        
         <div class='item-img-content'>
         <video src=<%= rails_blob_path(post.video) %> type="video/mp4", controls></video>
         </div>
         <div class='item-info'>
           <h3 class='item-name'>
-            <%= post.title %>
-          </h3>
-          <div class='item-price'>
-            <span>お小遣い<%= post.price %>円<br></span>
-          </div>
+          <%= post.user.nickname %>さんの依頼<h2><%= post.title %>&#x1f91d;
+          <span>お小遣い<%= post.price %>円<br></span>
+          </h3></h2>
         </div>
-        <% end %>
+        
       </li>
       <% end %>
+      
       <% end %>
     </ul>
       </div>
-
+      <div>
       <div class="bottom-content">
         <form class="contact-form">
           <h2 class="heading-name">お手伝いを依頼する
@@ -89,6 +87,7 @@
           <% end %>
         </form>
       </div>
+    </div>
     </div>
     <footer>
       <p>すけっと ~福井県版~ </p>
