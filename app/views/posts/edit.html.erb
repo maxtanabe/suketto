@@ -1,0 +1,86 @@
+<div class="items-sell-contents">
+  <header class="items-sell-header">
+  </header>
+  <div class="items-sell-main">
+    <h2 class="items-sell-title">お手伝い内容を入力</h2>
+    <%= form_with(model: @post, local: true) do |f| %>
+    
+    <%# <%= render 'shared/error_messages', model: f.object %>
+
+    <%# 出品画像 %>
+    <div class="img-upload">
+      <div class="weight-bold-text">
+        お手伝い内容を動画で撮影
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :video, id:"item-video" %>
+      </div>
+    </div>
+    <%# /出品画像 %>
+
+    <%# 商品名 %>
+    <div class="new-items">
+      <div class="weight-bold-text">
+        お手伝いして欲しいこと
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :title, class:"items-text", id:"item-name", placeholder:"例）キャベツの収穫を手伝って欲しい（40文字まで)", maxlength:"40" %>
+    </div>
+    <%# /商品名 %>
+
+    <%# 販売価格 %>
+    <div class="sell-price">
+      <div class="weight-bold-text question-text">
+        <span>助っ人にあげるお小遣い<br>(¥500〜5,000)</span>
+        <a class="question" href="#">?</a>
+      </div>
+      <div>
+        <div class="price-content">
+          <div class="price-text">
+            <span>価格</span>
+            <span class="indispensable">必須</span>
+          </div>
+          <span class="sell-yen">¥</span>
+          <%= f.text_field :price, class:"price-input", id:"item-price", placeholder:"例）500" %>
+        </div>
+      </div>
+    </div>
+  
+    <%# /販売価格 %>
+
+    <%# 注意書き %>
+    <div class="caution">
+      <p class="sentence">
+        <a href="#">禁止されているお手伝いや</a>
+        <a href="#">行為</a>
+        を必ずご確認ください。
+      </p>
+      <p class="sentence">
+        すけっと ~福井県版~ では、誰かが悪いことをしない為、やり取りを監視しています。
+        <a href="#">規約内容はこちらから</a>
+      </p>
+    </div>
+    <%# /注意書き %>
+    <%# 下部ボタン %>
+    <div class="sell-btn-contents">
+      <%= f.submit "変更する", class:"sell-btn" %>
+      <%=link_to 'もどる', user_path(@post.user.id), class:"back-btn" %>
+    </div>
+    </div>
+  <% end %>
+
+  <footer class="items-sell-footer">
+    <ul class="menu">
+      <li><a href="#">プライバシーポリシー</a></li>
+      <li><a href="#">すけっと利用規約</a></li>
+      <li><a href="#">特定商取引に関する表記</a></li>
+    </ul>
+    <p class="inc">
+      すけっと ~福井県版~
+    </p>
+  </footer>
+</div>

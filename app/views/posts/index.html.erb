@@ -15,7 +15,7 @@
         <div class="navbar">
           <ul class="nav-lists">
             <% if user_signed_in? %>
-            <li>&#x1f3e0;おかえりなさい<%= link_to current_user.nickname, edit_user_path(current_user), class: "user-nickname" %>さん</li>
+            <li>&#x1f3e0;おかえりなさい<%= link_to current_user.nickname, class: "user-nickname" %>さん</li>
             <li>&#x1f933;<%= link_to current_user.nickname, user_path(current_user.id), method: :get, class: "user-nickname" %>さんのページ</li>
             <li>&#x1f622;<%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>する？</li>
             <% else %>
@@ -67,8 +67,8 @@
           </div>
           <div class='item-info'>
             <h3 class='item-name'>
-            <%= post.user.nickname %>さんの依頼<h2><%= post.title %>&#x1f91d;
-            <span>お小遣い<%= post.price %>円<br></span>
+            <%= link_to post.user.nickname, user_path(post.user.id), method: :get %>さんのお手伝い<h2><%= post.title %>
+            <span>&#x1f4b0;お小遣い<%= post.price %>円<br></span>
             </h3></h2>
           </div>
           </li>

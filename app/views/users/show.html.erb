@@ -10,7 +10,7 @@
       <div class="navbar">
         <ul class="nav-lists">
         <% if user_signed_in? %>
-          <li>&#x1f3e0;おかえりなさい<%= link_to current_user.nickname, edit_user_path(current_user), class: "user-nickname" %>さん</li>
+          <li>&#x1f3e0;おかえりなさい<%= link_to current_user.nickname, class: "user-nickname" %>さん</li>
           <li>&#x1f933;<%= link_to current_user.nickname, user_path(current_user.id), method: :get, class: "user-nickname" %>さんのページ</li>
           <li>&#x1f622;<%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>する？</li>
         <% else %>
@@ -31,7 +31,7 @@
       <table class="table">
         <tbody>
           <tr>
-            <th class="table__col1">名前</th>
+            <th class="table__col1">ニックネーム</th>
             <td class="table__col2"><%= @user.nickname %></td>
           </tr>
           <tr>
@@ -56,6 +56,15 @@
           <%= post.user.nickname %>さんの依頼<h2><%= post.title %>&#x1f91d;
           <span>お小遣い<%= post.price %>円<br></span>
           </h3></h2>
+
+          <% if user_signed_in? && current_user.id == post.user_id %>
+            <%= link_to edit_post_path(post.id), class: 'submit' do %>
+            編集
+            <% end %>
+            <%= link_to post_path(post.id), method: :delete, class: 'submit' do %>
+            削除
+            <% end %>
+          <% end %>
         </div>
         
       </li>

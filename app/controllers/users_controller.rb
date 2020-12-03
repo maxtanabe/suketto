@@ -1,25 +1,18 @@
 class UsersController < ApplicationController
-
-  def edit
-  end
-
-  def update
-    if current_user.update(user_params)
-      redirect_to root_path
-    else
-      render :edit
-    end
-  end
+  before_action :jugment_user, only:[:edit]
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts
+    @posts = @user.posts.order("created_at DESC")
   end
 
   private
 
-  def user_params
-    params.require(:user).permit(:nickname, :birth_date, :email)
+  def jugment_user
+    @user = User.find(params[:id])
+    unless @user == current_user
+      redirect_to root_path
+    end
   end
 
 end

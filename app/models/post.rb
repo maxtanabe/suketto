@@ -8,3 +8,4 @@ class Post < ApplicationRecord
     validates :video
   end
 end
+
