@@ -8,26 +8,28 @@
   <body>
     <header>
       <div class="heading">
-        <%= link_to 'すけっと ~福井県版~', root_path %>
+            <%= link_to root_path, class: 'submit' do %>
+            <%= image_tag 'すけっと.png' , size: '300x50' ,class: "purchase-btn-icon" %>
+            <% end %>
       </div>
-      <div class="navbar">
-        <ul class="nav-lists">
-        <% if user_signed_in? %>
-          <li>&#x1f3e0;おかえりなさい<%= link_to current_user.nickname, edit_user_path(current_user), class: "user-nickname" %>さん</li>
-          <li>&#x1f933;<%= link_to current_user.nickname, user_path(current_user.id), method: :get, class: "user-nickname" %>さんのページ</li>
-          <li>&#x1f622;<%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>する？</li>
-        <% else %>
-          <li>&#x1f60a;<%= link_to 'ログイン', new_user_session_path, class: "login" %>する？</li>
-          <li>&#x1f60a;<%= link_to '新規登録', new_user_registration_path, class: "sign-up" %>する？</li>
-          <li>&#x1f60a;ふるさとの納税サービス</li>
-        <% end %>
-        </ul>
-      </div>
+        <div class="navbar">
+          <ul class="nav-lists">
+            <% if user_signed_in? %>
+            <li>&#x1f3e0;おかえりなさい<%= link_to current_user.nickname, edit_user_path(current_user), class: "user-nickname" %>さん</li>
+            <li>&#x1f933;<%= link_to current_user.nickname, user_path(current_user.id), method: :get, class: "user-nickname" %>さんのページ</li>
+            <li>&#x1f622;<%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>する？</li>
+            <% else %>
+            <li>&#x1f60a;<%= link_to 'ログイン', new_user_session_path, class: "login" %>する？</li>
+            <li>&#x1f60a;<%= link_to '新規登録', new_user_registration_path, class: "sign-up" %>する？</li>
+            <li>&#x1f60a;ふるさとの納税サービス</li>
+            <% end %>
+          </ul>
+        </div>
     </header>
 
     <div class="contents">
       <div class="first-view">
-      <%= image_tag "top.png", class:"top-image" %>
+        <%= image_tag "top.png", class:"top-image" %>
       </div>
       <div class="upper-content">
         <h2 class="heading-name">最近のありがとう&#x1f60a;</h2>
@@ -54,41 +56,39 @@
           </li>
         </ul>
       </div>
-      <div class="middle-content">
-        <h2 class="heading-name">みんなのお手伝い&#x1f91d;</h2>
+        <div class="middle-content">
+          <h2 class="heading-name">みんなのお手伝い&#x1f91d;</h2>
            <ul class='item-lists'>
-
-      <% if @posts.present? %>
-      
-      <% @posts.each do |post| %>
-      <li class='list'>
-        <div class='item-img-content'>
-        <video src=<%= rails_blob_path(post.video) %> type="video/mp4", controls></video>
+             <% if @posts.present? %>
+             <% @posts.each do |post| %>
+          <li class='list'>
+          <div class='item-img-content'>
+            <video src=<%= rails_blob_path(post.video) %> type="video/mp4", controls></video>
+          </div>
+          <div class='item-info'>
+            <h3 class='item-name'>
+            <%= post.user.nickname %>さんの依頼<h2><%= post.title %>&#x1f91d;
+            <span>お小遣い<%= post.price %>円<br></span>
+            </h3></h2>
+          </div>
+          </li>
+            <% end %>
+            <% end %>
+            </ul>
         </div>
-        <div class='item-info'>
-          <h3 class='item-name'>
-          <%= post.user.nickname %>さんの依頼<h2><%= post.title %>&#x1f91d;
-          <span>お小遣い<%= post.price %>円<br></span>
-          </h3></h2>
-        </div>
-        
-      </li>
-      <% end %>
-      
-      <% end %>
-    </ul>
-      </div>
       <div>
+
       <div class="bottom-content">
         <form class="contact-form">
           <h2 class="heading-name">お手伝いを依頼する
           <%= link_to new_post_path, class: 'submit' do %>
-            <%= image_tag 'icon_camera.png' , size: '185x180' ,class: "purchase-btn-icon" %>
+          <%= image_tag 'icon_camera.png' , size: '185x180' ,class: "purchase-btn-icon" %>
           <% end %>
         </form>
       </div>
     </div>
     </div>
+
     <footer>
       <p>すけっと ~福井県版~ </p>
     </footer>
