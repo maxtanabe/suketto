@@ -54,7 +54,7 @@ a {
   text-decoration: none;
 }
 
-/* first-viewクラスからbottom-contentクラスまでの要素の親要素 */
+/* 親要素 */
 .contents {
   background-color: white;
 }
@@ -102,7 +102,7 @@ a {
   padding-right: 40px;
 }
 
-/* スタイリスト紹介 */
+/* 最近のありがとう */
 .middle-content{
   height: 450px;
   margin: 0 160px;
