@@ -17,7 +17,6 @@ ul,li {
 }
 
 
-
 /* ヘッダー */
 header {
   height: 50px;
@@ -69,16 +68,8 @@ a {
   height: 100%;
   padding: 0 150px;
   border-top: 50px solid white;
-
   border-bottom: 50px solid white;
-
   box-shadow: 0 1px 30px rgb(173, 219, 222);
-}
-
-/* 新着情報 */
-.upper-content{
-  height: 450px;
-  margin: 0 160px;
 }
 
 .heading-name {
@@ -159,6 +150,82 @@ a {
   display: block;
 }
 
+
+/* //みんなのお手伝い以降 */
+
+.item-lists {
+  height: 600px;
+  overflow: scroll;
+  white-space:nowrap;
+}
+
+
+.item-lists {
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 60px 330px 100px 0;
+  
+}
+
+.item-lists>.list {
+  background-color: #FFF;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+
+.item-img-content video {
+  width: 100%;
+}
+
+.sold-out {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+  text-align: center;
+  background-color: crimson;
+  transform: skewY(-10deg);
+}
+
+.sold-out>span {
+  color: #FFF;
+  font-size: 45px;
+  font: bold;
+}
+
+
+.item-info {
+  background-color: #FFF;
+  color: black;
+  padding: 1vw;
+}
+
+.item-name {
+  font-size: 2.5vh;
+}
+
+.item-price {
+  font-size: 1.5vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.star-btn {
+  display: flex;
+  align-items: center;
+}
+
+.star-icon {
+  height: 2vh;
+  width: 2vh;
+  margin-right: 0.5vw;
+}
+
+.star-count {
+  font-size: 2vh;
+}
+
 /* フッター */
 footer {
   height: 50px;
@@ -166,3 +233,49 @@ footer {
   text-align: center;
   color: gray;
 }
+
+
+/* ユーザーページ */
+.user__wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 1px 30px rgb(173, 219, 222);
+}
+
+.list {
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 210px;
+
+}
+
+
+.table{
+  border-collapse: collapse;
+  margin-bottom: 32px;
+  width: 50%;
+}
+.table__col1{
+  text-align: left;
+  font-weight: bold;
+  background: #fafafa;
+  border-collapse: collapse;
+  border: 1px solid #f5f5f5;
+  width: 30%;
+  padding: 8px;
+}
+.table__col2{
+  text-align: left;
+  border: 1px solid #f5f5f5;
+  border-collapse: collapse;
+  width: 70%;
+  padding: 16px 8px;
+}
+.user__card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+

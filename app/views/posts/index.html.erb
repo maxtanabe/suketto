@@ -67,7 +67,7 @@
           </div>
           <div class='item-info'>
             <h3 class='item-name'>
-            <%= link_to post.user.nickname, user_path(post.user.id), method: :get %>さんのお手伝い<h2><%= post.title %>
+            <%= link_to post.user.nickname, post_path(post.id) %>さんのお手伝い<h2><%= post.title %>
             <span>&#x1f4b0;お小遣い<%= post.price %>円<br></span>
             </h3></h2>
           </div>

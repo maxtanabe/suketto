@@ -40,6 +40,13 @@ class PostsController < ApplicationController
     redirect_to user_path(@post.user.id)
   end
 
+  def show
+    @post = Post.find(params[:id])
+    @posts = Post.all.order("created_at DESC")
+    @comment = Comment.new
+    @comments = @post.comments.order(created_at: :desc)
+  end
+
   private
 
   def post_params

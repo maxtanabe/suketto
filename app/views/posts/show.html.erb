@@ -1,0 +1,75 @@
+
+     <body>
+    <header>
+      <div class="heading">
+              <div class="heading">
+            <%= link_to root_path, class: 'submit' do %>
+            <%= image_tag 'すけっと.png' , size: '300x50' ,class: "purchase-btn-icon" %>
+            <% end %>
+      </div>
+      </div>
+      <div class="navbar">
+        <ul class="nav-lists">
+        <% if user_signed_in? %>
+          <li>&#x1f3e0;おかえりなさい<%= link_to current_user.nickname, class: "user-nickname" %>さん</li>
+          <li>&#x1f933;<%= link_to current_user.nickname, user_path(current_user.id), method: :get, class: "user-nickname" %>さんのページ</li>
+          <li>&#x1f622;<%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>する？</li>
+        <% else %>
+          <li>&#x1f60a;<%= link_to 'ログイン', new_user_session_path, class: "login" %>する？</li>
+          <li>&#x1f60a;<%= link_to '新規登録', new_user_registration_path, class: "sign-up" %>する？</li>
+          <li>&#x1f60a;ふるさとの納税サービス</li>
+        <% end %>
+        </ul>
+      </div>
+    </header>
+
+<div class="main">
+  <div class="inner">
+    <div class="user__wrapper">
+      <h2 class="page-heading">
+        <%= @post.user.nickname %>さんの依頼
+      </h2>
+      <div class="user__card">
+      <% if @posts.present? %>
+      
+      <% @posts.each do |post| %>
+      <li class='list'>
+        <div class='item-img-content'>
+        <video src=<%= rails_blob_path(post.video) %> type="video/mp4", controls></video>
+        </div>
+        <div class='item-info'>
+          <h3 class='item-name'>
+          <%= post.user.nickname %>さんの依頼<h2><%= post.title %>&#x1f91d;
+          <span>お小遣い<%= post.price %>円<br></span>
+          </h3></h2>
+          <div class="row">
+            <ul>
+              <li class="comment-create">
+              <h3 class="text-left title">トークルーム</h3>
+              </li>
+              <li id="comments_area">
+                <%= render partial: 'comments/index', locals: { comments: @comments } %>
+              </li>
+            </ul>
+          <hr>
+            <% if user_signed_in? %>
+              <div class="comment-create">
+                <h3 class="text-left">レビューを投稿する</h3>
+                <%= render partial: 'comments/form', locals: { comment: @comment, post: @post } %>
+              </div>
+             <% end %>
+           </div>
+        </div>
+      </li>
+      <% end %>
+      
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <footer>
+      <p>すけっと ~福井県版~ </p>
+    </footer>
+     <body>
