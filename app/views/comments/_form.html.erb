@@ -1,5 +1,5 @@
 <!-- コメント入力フォーム ------------------------------------------------------------>
-<%= form_with(model: [post, comment], url: post_comments_path(@post.id) ) do |f| %>
+<%= form_with(model: [@post, @comment], url: post_comments_path(@post.id) ) do |f| %>
     <%= f.text_area :content, class: "input-mysize" %>
     <%= f.submit "送信", class: "btn btn-outline-dark comment-submit float-right" %>
 <% end %>

@@ -4,10 +4,12 @@
 <% @comments.first(2).each do |comment| %>
   <% unless comment.id.nil? %>
     <li class="comment-container">
-        <div class="comment-box">
-            <div class="comment-text">
+        <div id="comment-box">
+            <div class="comment">
+              <div class="comment-nickname">
                 <p><%= link_to "@#{comment.user.nickname}", user_path(comment.user.id) %></p>
-                <div class="comment-entry">
+              </div>
+                <div id="comment-entry">
                     <%= comment.content %>
                     <% if comment.user == current_user %>
                         <%= link_to post_comment_path(comment.post_id, comment.id), method: :delete, remote: true, class: "comment_destroy" do %>
@@ -16,7 +18,7 @@
                     <% end %>
                 </div>
                 <span class="comment-date pull-right">
-                      <%= comment.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
+                      <%= comment.created_at %>
                 </span>
             </div>
         </div>
@@ -40,7 +42,7 @@
                                 <% end %>
                             </div>
                             <span class="comment-date pull-right">
-                                  <%= comment.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
+                                  <%= comment.created_at %>
                             </span>
                         </div>
                     </div>

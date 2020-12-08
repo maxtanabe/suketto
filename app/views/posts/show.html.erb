@@ -44,13 +44,13 @@
               <li class="comment-create">
               <h3 class="text-left title">トークルーム</h3>
               </li>
-              <li id="comments_area">
+              <li class="comments_area">
                 <%= render partial: 'comments/index', locals: { comments: @comments } %>
               </li>
             </ul>
-          <hr>
+        
             <% if user_signed_in? %>
-              <div class="comment-create">
+              <div id="comment-create">
                 <h3 class="text-left">コメントを投稿</h3>
                 <%= render partial: 'comments/form', locals: { comment: @comment, post: @post } %>
               </div>
