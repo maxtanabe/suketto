@@ -63,7 +63,7 @@
              <% @posts.each do |post| %>
           <li class='list'>
           <div class='item-img-content'>
-            <video src=<%= rails_blob_path(post.video) %> type="video/mp4", controls></video>
+            <video src=<%= rails_blob_path(post.video) %> type="video", controls></video>
           </div>
           <div class='item-info'>
             <h3 class='item-name'>

@@ -27,6 +27,11 @@
     <div class="user__wrapper">
       <h2 class="page-heading">
         <%= @user.nickname %>さんのページ
+            <% if user_signed_in? && current_user.id == @post.user_id %>
+            <%= link_to edit_user_registration_path(@user.id), class: 'submit' do %>
+            編集
+            <% end %>
+            <% end %>
       </h2>
       <table class="table">
         <tbody>
@@ -37,6 +42,14 @@
           <tr>
             <th class="table__col1">誕生日</th>
             <td class="table__col2"><%= @user.birth_date %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">住所</th>
+            <td class="table__col2"><%= @user.area.name %><%= @user.address %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">連絡先</th>
+            <td class="table__col2"><%= @user.phone_number %></td>
           </tr>
         </tbody>
       </table>
