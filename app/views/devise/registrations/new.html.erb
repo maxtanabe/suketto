@@ -9,7 +9,7 @@
         <%= devise_error_messages!%>
         <div class='field'>
           <div class='field-label'>
-            <%= f.label :nickname%>
+            <%= f.label :nickname, "ニックネーム"%>
           </div>
           <div class='field-input'>
             <%= f.text_field :nickname, autofocus: true%>
@@ -17,15 +17,20 @@
         </div>
         <div class='field'>
           <div class='field-label'>
-            <%= f.label :birth_date%>
+            <%= f.label :birth_date, "誕生日"%>
           </div>
-          <div class='field-input'>
-            <%= f.date_select :birth_date, use_month_numbers: true,start_year: 1930,end_year: (Time.now.year - 10), default: Date.new(1989, 1, 1), autofocus: true%>
-          </div>
+          <%= raw sprintf(
+            f.date_select(:birth_date,
+              use_month_numbers: true,
+              start_year: 1930,
+              end_year: (Time.now.year - 18),
+              default: Date.new(1960, 1, 1),
+              date_separator: '%s'),
+              '年 ', '月 ') + '日' %>
         </div>
         <div class='field'>
           <div class='field-label'>
-            <%= f.label :email%>
+            <%= f.label :email, "携帯メールアドレス"%>
           </div>
           <div class='field-input'>
             <%= f.email_field :email%>
@@ -33,7 +38,7 @@
         </div>
         <div class='field'>
           <div class='field-label'>
-            <%= f.label :password%>
+            <%= f.label :password, "パスワード"%>
             <i>(英数字6文字以上)</i>
           </div>
           <div class='field-input'>
@@ -42,12 +47,40 @@
         </div>
         <div class='field'>
           <div class='field-label'>
-            <%= f.label :password_confirmation%>
+            <%= f.label :password_confirmation, "パスワード確認"%>
           </div>
           <div class='field-input'>
             <%= f.password_field :password_confirmation, autocomplete: "off"%>
           </div>
         </div>
+        
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :area_id, "市町村" %>
+          </div>
+          <div class='field-input'>
+            <%= f.collection_select :area_id, Area.all, :id, :name, {} %>
+          </div>
+        </div>
+
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :address, "市町村以降の住所"%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :address, autofocus: true%>
+          </div>
+        </div>
+
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :phone_number, "携帯番号"%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :phone_number, autofocus: true%>
+          </div>
+        </div>
+
         <div class='actions'>
           <%= f.submit "Create Account", class: 'btn'%>
         </div>
