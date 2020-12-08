@@ -5,7 +5,7 @@
     </div>
     <div class='account-page__inner--right user-form'>
       <%= form_with model: resource, as: resource_name, url: registration_path(resource_name), local: true do |f|%>
-        <%= devise_error_messages!%>
+        <%= render "devise/shared/error_messages", resource: resource %>
         <div class='field'>
           <div class='field-label'>
             <%= f.label :nickname, "ニックネーム"%>
@@ -35,23 +35,10 @@
             <%= f.email_field :email%>
           </div>
         </div>
-        <div class='field'>
-          <div class='field-label'>
-            <%= f.label :password, "パスワード"%>
-            <i>(英数字6文字以上)</i>
-          </div>
-          <div class='field-input'>
-            <%= f.password_field :password, autocomplete: "off"%>
-          </div>
-        </div>
-        <div class='field'>
-          <div class='field-label'>
-            <%= f.label :password_confirmation, "パスワード確認"%>
-          </div>
-          <div class='field-input'>
-            <%= f.password_field :password_confirmation, autocomplete: "off"%>
-          </div>
-        </div>
+<div class="field">
+    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password" %>
+ </div>
         
         <div class='field'>
           <div class='field-label'>
@@ -81,9 +68,10 @@
         </div>
 
         <div class='actions'>
-          <%= f.submit "Create Account", class: 'btn'%>
+          <%= f.submit "Update", class: 'btn'%>
         </div>
       </div>
     <% end %>
+    <%= link_to "Back", :back %>
   </div>
 </div>
