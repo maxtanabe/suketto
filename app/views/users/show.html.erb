@@ -27,9 +27,9 @@
     <div class="user__wrapper">
       <h2 class="page-heading">
         <%= @user.nickname %>さんのページ
-            <% if user_signed_in? && current_user.id == @post.user_id %>
+            <% if user_signed_in? && current_user.id == @user_id %>
             <%= link_to edit_user_registration_path(@user.id), class: 'submit' do %>
-            編集
+            （編集）
             <% end %>
             <% end %>
       </h2>
@@ -58,31 +58,27 @@
       </h2>
       <div class="user__card">
       <% if @posts.present? %>
-      
-      <% @posts.each do |post| %>
-      <li class='list'>
-        <div class='item-img-content'>
-        <video src=<%= rails_blob_path(post.video) %> type="video/mp4", controls></video>
-        </div>
-        <div class='item-info'>
-          <h3 class='item-name'>
-          <%= post.user.nickname %>さんの依頼<h2><%= post.title %>&#x1f91d;
-          <span>お小遣い<%= post.price %>円<br></span>
-          </h3></h2>
-
-          <% if user_signed_in? && current_user.id == post.user_id %>
-            <%= link_to edit_post_path(post.id), class: 'submit' do %>
-            編集
-            <% end %>
-            <%= link_to post_path(post.id), method: :delete, class: 'submit' do %>
-            削除
-            <% end %>
-          <% end %>
-        </div>
-        
+        <% @posts.each do |post| %>
+          <li class='list'>
+            <div class='item-img-content'>
+              <video src=<%= rails_blob_path(post.video) %> type="video/mp4", controls></video>
+            </div>
+            <div class='item-info'>
+              <h3 class='item-name'>
+                <%= post.user.nickname %>さんの依頼<h2><%= post.title %>&#x1f91d;
+              <span>お小遣い<%= post.price %>円<br></span>
+              </h3></h2>
+      <% if user_signed_in? && current_user.id == post.user_id %>
+        <%= link_to edit_post_path(post.id), class: 'submit' do %>
+          編集
+        <% end %>
+        <%= link_to post_path(post.id), method: :delete, class: 'submit' do %>
+          削除
+        <% end %>
+      <% end %>
+      </div>  
       </li>
       <% end %>
-      
       <% end %>
       </div>
     </div>
