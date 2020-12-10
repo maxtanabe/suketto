@@ -10,16 +10,14 @@
                 <p><%= link_to "@#{comment.user.nickname}", user_path(comment.user.id) %></p>
               </div>
                 <div id="comment-entry">
-                    <%= comment.content %>
+                    <span style="font-weight:bold;"><%= comment.content %></span>
+                    &nbsp;<%= comment.created_at.to_s(:datetime_jp) %>
                     <% if comment.user == current_user %>
-                        <%= link_to post_comment_path(comment.post_id, comment.id), method: :delete, remote: true, class: "comment_destroy" do %>
-                            <i>削除</i>
+                        <%= link_to post_comment_path(comment.post_id, comment.id), method: :delete do %>
+                            &nbsp;<button id="<%=comment.post.id%>" class="delete-btn">削除</button>
                         <% end %>
                     <% end %>
                 </div>
-                <span class="comment-date pull-right">
-                      <%= comment.created_at %>
-                </span>
             </div>
         </div>
     </li>
@@ -34,19 +32,17 @@
                         <div class="comment-text">
                             <p><%= link_to "@#{comment.user.nickname}", user_path(comment.user.id) %></p>
                             <div class="comment-entry">
-                                <%= comment.content %>
+                                <span style="font-weight:bold;"><%= comment.content %></span>
+                                &nbsp;<%= comment.created_at.to_s(:datetime_jp) %>
                                 <% if comment.user == current_user %>
-                                    <%= link_to post_comment_path(comment.post_id, comment.id), method: :delete, remote: true, class: "comment_destroy" do %>
-                                        <i>削除</i>
-                                    <% end %>
+                                  <%= link_to post_comment_path(comment.post_id, comment.id), method: :delete do %>
+                                  &nbsp;<button id="<%=comment.post.id%>" class="delete-btn">削除</button>
                                 <% end %>
-                            </div>
-                            <span class="comment-date pull-right">
-                                  <%= comment.created_at %>
-                            </span>
+                            <% end %>
                         </div>
                     </div>
-                </li>
-              <% end %>
-            <% end %>
+                </div>
+            </li>
+          <% end %>
+        <% end %>
     </div>
