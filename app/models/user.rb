@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments, dependent: :destroy
   belongs_to :area
+  has_one :card, dependent: :destroy
   with_options presence: true do
     validates :nickname
     validates :birth_date

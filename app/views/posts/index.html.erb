@@ -9,7 +9,7 @@
     <header>
       <div class="heading">
             <%= link_to root_path, class: 'submit' do %>
-            <%= image_tag 'すけっと.png' , size: '300x50' ,class: "purchase-btn-icon" %>
+            <%= image_tag 'すけっと.png' , size: '150x50' ,class: "purchase-btn-icon" %>
             <% end %>
       </div>
         <div class="navbar">
@@ -60,21 +60,26 @@
           <h2 class="heading-name">みんなのお手伝い&#x1f91d;</h2>
            <ul class='item-lists'>
              <% if @posts.present? %>
-             <% @posts.each do |post| %>
-          <li class='list'>
-          <div class='item-img-content'>
-            <video src=<%= rails_blob_path(post.video) %> type="video", controls></video>
-          </div>
-          <div class='item-info'>
-            <h3 class='item-name'>
-            <%= link_to post_path(post.id) do %>
-            <%= post.user.nickname %>さんを助けに行く<% end %><h2>依頼→<%= post.title %>
-            <span>&#x1f4b0;お小遣い→<%= post.price %>円<br></span>
-            </h3></h2>
-          </div>
-          </li>
-            <% end %>
-            <% end %>
+               <% @posts.each do |post| %>
+                 <li class='list'>
+                   <div class="thanx">
+                      <div class='item-img-content'>
+                        <video src=<%= rails_blob_path(post.video) %> type="video", controls></video>
+                          <% if post.post_order.present?  %>
+                            <p class="text">お手伝いありがとう</p>
+                          <% end %>
+                      </div>
+                   </div>
+                   <div class='item-info'>
+                     <h3 class='item-name'>
+                       <%= link_to post_path(post.id) do %>
+                       <%= post.user.nickname %>さんを助けに行く<% end %><h2>依頼→<%= post.title %>
+                         <span>&#x1f4b0;お小遣い→<%= post.price %>円<br></span>
+                     </h3></h2>
+                   </div>
+                 </li>
+               <% end %>
+             <% end %>
             </ul>
         </div>
       <div>

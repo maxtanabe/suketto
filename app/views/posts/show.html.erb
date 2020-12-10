@@ -1,9 +1,8 @@
     <body>
     <header>
       <div class="heading">
-              <div class="heading">
             <%= link_to root_path, class: 'submit' do %>
-            <%= image_tag 'すけっと.png' , size: '300x50' ,class: "purchase-btn-icon" %>
+            <%= image_tag 'すけっと.png' , size: '150x50' ,class: "purchase-btn-icon" %>
             <% end %>
       </div>
       </div>
@@ -30,9 +29,18 @@
       </h2>
       <div class="user__card">
       <li class='list'>
+      <div class="thanx">
         <div class='item-img-content'>
         <video src=<%= rails_blob_path(@post.video) %> type="video/mp4", controls></video>
+        <% if @post.post_order.present?  %>
+          <p class="text">お手伝いありがとう</p>
+        <% else %>
+          <div id="comment-create">
+            <%= link_to 'すけっとにお小遣いを渡す', order_post_path(@post.id), method: :post %>
+          </div>
+        <% end %>
         </div>
+      </div>
         <div class='item-info'>
           <h3 class='item-name'>
           <%= @post.user.nickname %>さんの依頼<h2><%= @post.title %>&#x1f91d;
