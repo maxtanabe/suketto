@@ -26,13 +26,21 @@
           </ul>
         </div>
     </header>
-
-    <div class="contents">
-      <div class="first-view">
-        <%= image_tag "top.png", class:"top-image" %>
-      </div>
-      <div class="upper-content">
-        <h2 class="heading-name">最近のありがとう&#x1f60a;</h2>
+      <div class="contents">
+        <div class="first-view">
+          <%= image_tag "top.png", class:"top-image" %>
+        </div>
+          <p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p>
+            <div class="girl_center">
+              <div class="girl_talk_set">
+                <div class="icon-box">
+                  <%= image_tag "girl.png", size: '40x40'  ,class:"girl-icon" %>
+                </div>
+                  <div class="girl_talk">みんなのありがとう</div>
+              </div>
+            </div>
+          <p></p><p></p><p></p>
+      <div class="upper-content"> 
         <ul class="messages">
           <li class="message">
             <div class="message-date">2020/01/03</div>
@@ -56,8 +64,16 @@
           </li>
         </ul>
       </div>
-        <div class="middle-content">
-          <h2 class="heading-name">みんなのお手伝い&#x1f91d;</h2>
+      <p></p><p></p><p></p>
+        <div class="girl_center">
+          <div class="girl_talk_set">
+            <div class="icon-box">
+              <%= image_tag "girl.png", size: '40x40'  ,class:"girl-icon" %>
+            </div>
+              <div class="girl_talk">みんなのお手伝い</div>
+          </div>
+        </div>
+          <div class="middle-content">
            <ul class='item-lists'>
              <% if @posts.present? %>
                <% @posts.each do |post| %>
@@ -70,33 +86,39 @@
                           <% end %>
                       </div>
                    </div>
-                   <div class='item-info'>
-                     <h3 class='item-name'>
-                       <%= link_to post_path(post.id) do %>
-                       <%= post.user.nickname %>さんを助けに行く<% end %><h2>依頼→<%= post.title %>
-                         <span>&#x1f4b0;お小遣い→<%= post.price %>円<br></span>
-                     </h3></h2>
-                   </div>
-                 </li>
-               <% end %>
-             <% end %>
-            </ul>
+                  <div class='item-info'>
+                    <h3 class='item-name'>
+                      <%= link_to post_path(post.id) do %>
+                        <%= post.user.nickname %>さんを助けに行く<% end %><h2>依頼→<%= post.title %>
+                          <span>&#x1f4b0;お小遣い→<%= post.price %>円<br></span>
+                    </h3></h2>
+                  </div>
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
         </div>
       <div>
-
-      <div class="bottom-content">
-        <form class="contact-form">
-          <h2 class="heading-name">お手伝いを依頼する
+    <div class="bottom-content">
+      <form class="contact-form">
+        <div class="girl_center">
+          <div class="girl_talk_set">
+            <div class="icon-box">
+              <%= image_tag "girl.png", size: '40x40'  ,class:"girl-icon" %>
+            </div>
+              <div class="girl_talk">お手伝いを依頼する？</div>
+              </div>
+          </div>
+            <p></p>
           <%= link_to new_post_path, class: 'submit' do %>
-          <%= image_tag 'icon_camera.png' , size: '185x180' ,class: "purchase-btn-icon" %>
+            <%= image_tag 'icon_camera.png' , size: '280x250' ,class: "purchase-btn-icon" %>
           <% end %>
-        </form>
-      </div>
+      </form>
     </div>
-    </div>
-
-    <footer>
-      <p>すけっと ~福井県版~ </p>
-    </footer>
-  </body>
+  </div>
+</div>
+  <footer>
+    <p>すけっと ~福井県版~ </p>
+  </footer>
+</body>
 </html>

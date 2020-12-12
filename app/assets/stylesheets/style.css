@@ -296,3 +296,45 @@ footer {
 	0% { top:	0px; }
 	100% { top:	78%; }
 }
+
+/* girlセリフ */
+
+.girl_talk_set {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.girl_talk {
+  position: relative; /* 三角の位置を固定するために設定 */
+  display: inline-block;
+  max-width: 300px;
+  margin: 10px 20px 20px; /* 上 左右 下のマージン */
+  padding: 8px 15px; /* ふきだし内の余白 */
+  background: rgba(247, 136, 210, 0.4); /* 背景色 */
+  text-align: left; /* テキストの揃え */
+  border-radius: 15px;
+}
+.girl_talk::after {
+  content: '';
+  border: 14px solid transparent;
+  border-top-color: rgba(247, 136, 210, 0.4);
+  position: absolute;
+  top: 0;
+  left: -10px;
+}
+ 
+.icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 0 6px rgba(247, 136, 210, 0.4);
+  overflow: hidden;
+}
+
+.girl_center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -60,9 +60,14 @@
       <% if @posts.present? %>
         <% @posts.each do |post| %>
           <li class='list'>
+          <div class="thanx">
             <div class='item-img-content'>
               <video src=<%= rails_blob_path(post.video) %> type="video/mp4", controls></video>
+                <% if @post.post_order.present?  %>
+                  <p class="text">お手伝いありがとう</p>
+                <% end %>
             </div>
+          </div>
             <div class='item-info'>
               <h3 class='item-name'>
                 <%= post.user.nickname %>さんの依頼<h2><%= link_to post_path(post.id) do %><%= post.title %><% end %>&#x1f91d;

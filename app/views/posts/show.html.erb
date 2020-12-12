@@ -36,34 +36,39 @@
           <p class="text">お手伝いありがとう</p>
         <% else %>
           <div id="comment-create">
-            <%= link_to 'すけっとにお小遣いを渡す', order_post_path(@post.id), method: :post %>
+            <%= link_to '依頼完了', order_post_path(@post.id), method: :post %>
           </div>
         <% end %>
         </div>
       </div>
         <div class='item-info'>
           <h3 class='item-name'>
-          <%= @post.user.nickname %>さんの依頼<h2><%= @post.title %>&#x1f91d;
-          <span>お小遣い<%= @post.price %>円<br></span>
+            <%= @post.user.nickname %>さんの依頼<h2><%= @post.title %>&#x1f91d;
+              <span>お小遣い<%= @post.price %>円<br></span>
           </h3></h2>
-          <div class="row">
-            <ul>
-              <li class="comment-create">
-              <h3 class="text-left title">トークルーム</h3>
-              </li>
-              <li class="comments_area">
-                <%= render partial: 'comments/index', locals: { comments: @comments } %>
-              </li>
-            </ul>
-        
-            <% if user_signed_in? %>
-              <div id="comment-create">
-                <h3 class="text-left">コメントを投稿</h3>
-                <%= render partial: 'comments/form', locals: { comment: @comment, post: @post } %>
+            <div class="girl_talk_set">
+              <div class="icon-box">
+                <%= image_tag "girl.png", size: '40x40'  ,class:"girl-icon" %>
               </div>
-            <% end %>
-           </div>
-        </div>
+                <div class="girl_talk">トークルームでやり取り<p>完了したら依頼者は依頼完了をクリック</p></div>
+            </div>
+              <div class="row">
+                <ul>
+                  <li class="comment-create">
+                    <h3 class="text-left title">トークルーム</h3>
+                  </li>
+                  <li class="comments_area">
+                    <%= render partial: 'comments/index', locals: { comments: @comments } %>
+                  </li>
+                </ul>
+              <% if user_signed_in? %>
+                <div id="comment-create">
+                  <h3 class="text-left">コメントを投稿</h3>
+                    <%= render partial: 'comments/form', locals: { comment: @comment, post: @post } %>
+                </div>
+              <% end %>
+            </div>
+         </div>
       </li>
       </div>
     </div>
