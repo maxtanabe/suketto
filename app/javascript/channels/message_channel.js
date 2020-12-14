@@ -16,9 +16,9 @@ consumer.subscriptions.create("MessageChannel", {
                   &nbsp;${data.date}
                   &nbsp;<button id="<%=comment.post.id%>" class="delete-btn">削除</button>`;
 
-    const messages = document.getElementById('comment-box');
+    const messages = document.getElementById('collapseExample');
     const newMessage = document.getElementById('comment_content');
-    messages.insertAdjacentHTML('beforebegin', html);
+    messages.insertAdjacentHTML('beforeend', html);
     newMessage.value='';
   }
 });

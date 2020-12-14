@@ -13,8 +13,9 @@ class CommentsController < ApplicationController
   def destroy
     @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
-    @comment.destroy
-    redirect_to post_path(@post.id)
+    if @comment.destroy
+      ActionCable.server.broadcast 'delete_channel', id: @comment
+    end
   end
 
   private
