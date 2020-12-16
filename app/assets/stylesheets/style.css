@@ -72,6 +72,7 @@ a {
   height: 100%;
   box-shadow: 0 1px 30px rgb(0, 191, 45);
   object-fit: cover;
+  align-items: center;
 }
 
 .heading-name {
@@ -226,7 +227,7 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0 1px 30px rgb(173, 219, 222);
+  box-shadow: 0 1px 30px rgb(0, 191, 45);
 }
 
 .list {
@@ -337,4 +338,11 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+a.btn--yellow {
+  color: #000;
+  background-color: rgba(247, 136, 210, 0.4); 
+  border-bottom: 5px solid rgba(247, 136, 210, 0.4); 
+  font-size: large;
 }
