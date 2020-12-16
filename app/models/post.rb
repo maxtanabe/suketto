@@ -7,9 +7,10 @@ class Post < ApplicationRecord
     validates :title
     validates :price, format: { with: /\A[-]?[0-9]+(\.[0-9]+)?\z/}
     validates_inclusion_of :price, in: 500..5000
-    validates :video
+    # validates :video
   end
   validate :video_type
+  validate :video_size
 
   private
 
@@ -18,5 +19,11 @@ class Post < ApplicationRecord
         errors.add(:video, '動画は携帯で撮影したmov形式でアップロードしてください')
     end
   end
-end
 
+  def video_size
+    if video.blob.byte_size > 20.megabytes
+      errors.add(:video, "動画を短く撮影し直してください(20MB以内)")
+    end
+  end
+
+end

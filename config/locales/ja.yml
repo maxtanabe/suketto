@@ -1,0 +1,13 @@
+ja:
+ activerecord:
+   attributes:
+     user:
+       nickname: ニックネーム
+       area_id: 市町村
+       address: 市町村以降の住所
+       phone_number: 携帯番号
+       email: 携帯メールアドレス
+     post:
+       title: お手伝いして欲しいこと
+       price: 助っ人にあげるお小遣い
+       video: 撮影した
