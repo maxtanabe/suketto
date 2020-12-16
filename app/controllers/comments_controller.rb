@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     @comment = @post.comments.build(comment_params)
     @comment.user_id = current_user.id
     if @comment.save
-      ActionCable.server.broadcast 'message_channel', content: @comment, user: @comment.user, date: @comment.created_at.to_s(:datetime_jp)
+      ActionCable.server.broadcast 'message_channel', content: @comment, user: @comment.user, date: @comment.created_at.to_s(:datetime_jp), id: @comment.id,post: @comment.post
     end
   end
 
@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
     if @comment.destroy
-      ActionCable.server.broadcast 'delete_channel', id: @comment
+      ActionCable.server.broadcast 'delete_channel', id: @comment.id
     end
   end
 

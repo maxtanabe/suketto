@@ -10,10 +10,13 @@ consumer.subscriptions.create("DeleteChannel", {
   },
  
   received(data) {
-    const container = document.getElementById(`comment-${data.id}`);
-    if (container) {
-    container.parentNode.removeChild(container);
-    }
+
+    const test = document.getElementById(`${data.id}`)
+    const container = document.getElementById(`test-${data.id}`);
+    console.log(container)
+    container.remove();
+    
     },
+    
 });
 })

@@ -1,49 +1,50 @@
 <!-- コメント内容(２件) ------------------------------------------------------------------>
 <%= @comments.count %>件のコメント
-<h6 class="more" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">もっと見る....</h6>
-<% @comments.first(2).each do |comment| %>
-  <% unless comment.id.nil? %>
-    <li class="comment-container" id="comment-<%=comment.id%>">
-        <div id="comment-box">
+  <h6 class="more" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">もっと見る....</h6>
+    <% @comments.first(2).each do |comment| %>
+      <% unless comment.id.nil? %>
+        <li class="comment-container" id="test-<%=comment.id%>">
+          <div id="comment-box">
             <div class="comment">
               <div class="comment-nickname">
                 <p><%= link_to "@#{comment.user.nickname}", user_path(comment.user.id) %></p>
               </div>
                 <div id="comment-entry">
-                    <span style="font-weight:bold;"><%= comment.content %></span>
+                  <span style="font-weight:bold;"><%= comment.content %></span>
                     &nbsp;<%= comment.created_at.to_s(:datetime_jp) %>
-                    <% if comment.user == current_user %>
+                      <% if comment.user == current_user %>
                         <%= link_to post_comment_path(comment.post_id, comment.id), method: :delete, remote: true do %>
-                            &nbsp;<button id="<%=comment.id%>" id="delete-btn">削除</button>
+                          &nbsp;<button id="<%=comment.id%>" id="delete-btn">削除</button>
                         <% end %>
-                    <% end %>
+                      <% end %>
                 </div>
-            </div>
-        </div>
-    </li>
-  <% end %>
-<% end %>
+              </div>
+           </div>
+        </li>
+      <% end %>
+    <% end %>
 <!-- コメント内容(3件目以降) ------------------------------------------------------------------>
-    <p></p>
     <div class="collapse" id="collapseExample">
-            <% @comments.offset(2).each do |comment| %>
-              <% unless comment.id.nil? %>
-                <li id="comment-container" id="comment-#{comment.id}">
-                    <div class="comment-box">
-                        <div class="comment-text">
-                            <p><%= link_to "@#{comment.user.nickname}", user_path(comment.user.id) %></p>
-                            <div class="comment-entry">
-                                <span style="font-weight:bold;"><%= comment.content %></span>
-                                &nbsp;<%= comment.created_at.to_s(:datetime_jp) %>
-                                <% if comment.user == current_user %>
-                                  <%= link_to post_comment_path(comment.post_id, comment.id), method: :delete, remote: true  do %>
-                                  &nbsp;<button id="<%=comment.id%>" id="delete-btn">削除</button>
-                                <% end %>
-                            <% end %>
-                        </div>
-                    </div>
+      <% @comments.offset(2).each do |comment| %>
+        <% unless comment.id.nil? %>
+          <li class="comment-container" id="test-<%=comment.id%>">
+            <div id="comment-box">
+              <div class="comment">
+                <div class="comment-nickname">
+                  <p><%= link_to "@#{comment.user.nickname}", user_path(comment.user.id) %></p>
                 </div>
-            </li>
-          <% end %>
+                  <div id="comment-entry">
+                    <span style="font-weight:bold;"><%= comment.content %></span>
+                      &nbsp;<%= comment.created_at.to_s(:datetime_jp) %>
+                        <% if comment.user == current_user %>
+                          <%= link_to post_comment_path(comment.post_id, comment.id), method: :delete, remote: true do %>
+                            &nbsp;<button id="<%=comment.id%>" id="delete-btn">削除</button>
+                          <% end %>
+                        <% end %>
+                  </div>
+              </div>
+            </div>
+          </li>
         <% end %>
+      <% end %>
     </div>
