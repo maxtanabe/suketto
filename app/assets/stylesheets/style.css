@@ -16,6 +16,14 @@ ul,li {
   margin: 0;
 }
 
+/* タブレット表示時 未指定 */
+@media (max-width: 1024px) {
+}
+
+ /* スマホ表示時 未指定 */
+ @media (max-width: 599px) {
+}
+
 
 /* ヘッダー */
 header {
@@ -266,8 +274,7 @@ footer {
   align-items: center;
 }
 
-/* 投稿詳細ページ */
-
+/* 依頼完了 */
 
 .thanx {
 	width:		100%;
@@ -298,7 +305,7 @@ footer {
 	100% { top:	78%; }
 }
 
-/* girlセリフ */
+/* girlアイコン */
 
 .girl_talk_set {
   display: flex;
@@ -340,9 +347,29 @@ footer {
   align-items: center;
 }
 
+/* リンク付ボタン */
+
 a.btn--yellow {
   color: #000;
   background-color: rgba(247, 136, 210, 0.4); 
   border-bottom: 5px solid rgba(247, 136, 210, 0.4); 
   font-size: large;
+}
+
+a.btn--yellow:hover {
+  -webkit-transform: translate(0, -2px);
+  transform: translate(0, -2px);
+  color: #fff;
+  -webkit-box-shadow: 0 8px 15px rgba(0, 0, 0, .2);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, .2);
+}
+
+/* aタグのホバー色*/
+
+a{
+  transition: color 0.3s;
+}
+
+a:hover{
+  color :rgba(247, 136, 210, 0.4); 
 }

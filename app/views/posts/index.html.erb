@@ -1,6 +1,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>すけっと ~福井県版~</title>
       <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
       <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -88,7 +89,7 @@
                    </div>
                   <div class='item-info'>
                     <h3 class='item-name'>
-                      <%= link_to post_path(post.id) do %>
+                      <%= link_to post_path(post.id),class:"btn btn--yellow btn--cubic" do %>
                         <%= post.user.nickname %>さんを助けに行く<% end %><h2>依頼→<%= post.title %>
                           <span>&#x1f4b0;お小遣い→<%= post.price %>円<br></span>
                     </h3></h2>

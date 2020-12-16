@@ -28,9 +28,7 @@
       <h2 class="page-heading">
         <%= @user.nickname %>さんのページ
             <% if user_signed_in? && current_user.id == @user.id %>
-              <%= link_to edit_user_registration_path(@user.id), class: 'submit' do %>
-             （編集）
-              <% end %>
+              <%= link_to "編集", edit_user_registration_path(@user.id), class: "btn btn--yellow btn--cubic" %>
             <% end %>
       </h2>
       <table class="table">
@@ -74,12 +72,8 @@
               <span>お小遣い<%= post.price %>円<br></span>
               </h3></h2>
       <% if user_signed_in? && current_user.id == post.user_id %>
-        <%= link_to edit_post_path(post.id), class: 'submit' do %>
-          編集
-        <% end %>
-        <%= link_to post_path(post.id), method: :delete, class: 'submit' do %>
-          削除
-        <% end %>
+        <%= link_to "編集", edit_post_path(post.id), class: 'btn btn--yellow btn--cubic' %>
+        <%= link_to "削除",post_path(post.id), method: :delete, class: 'btn btn--yellow btn--cubic' %>
       <% end %>
       </div>  
       </li>

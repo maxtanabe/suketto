@@ -35,9 +35,11 @@
         <% if @post.post_order.present?  %>
           <p class="text">お手伝いありがとう</p>
         <% else %>
+        <% if user_signed_in? && current_user.id == @post.user.id %>
           <div id="comment-create">
             <%= link_to '依頼完了', order_post_path(@post.id), method: :post, class:"btn btn--yellow btn--cubic" %>
           </div>
+        <% end %>
         <% end %>
         </div>
       </div>
