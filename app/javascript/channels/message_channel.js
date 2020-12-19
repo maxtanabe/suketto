@@ -22,6 +22,9 @@ consumer.subscriptions.create("MessageChannel", {
     const newMessage = document.getElementById('comment_content');
     messages.insertAdjacentHTML('beforeend', html);
     newMessage.value='';
+
+      var countComment = document.getElementsById('collapseExample').length;
+      console.log(countComment)
   }
 });
 })

@@ -5,8 +5,8 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all.order("created_at DESC")
+    @thanks = Thank.order("RAND()").limit(4)
   end
-  
   def new
     @post = Post.new
   end
@@ -41,6 +41,8 @@ class PostsController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @post.comments
+    @thank = Thank.new
+    @thanks = @post.thanks
   end
 
   def order

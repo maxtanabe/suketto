@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
+  has_many :thanks
   has_one_attached :video
   has_one :post_order
   with_options presence: true do

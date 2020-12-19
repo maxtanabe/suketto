@@ -3,6 +3,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,:recoverable, :rememberable, :validatable
   attr_accessor :current_password
   has_many :posts
+  has_many :thanks
   has_many :comments, dependent: :destroy
   belongs_to :area
   has_one :card, dependent: :destroy

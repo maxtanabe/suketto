@@ -21,7 +21,7 @@
         </ul>
       </div>
     </header>
-
+<p></p><p></p><p></p><p></p>
 <div class="main">
   <div class="inner">
     <div class="user__wrapper">
@@ -51,6 +51,7 @@
           </tr>
         </tbody>
       </table>
+      <p></p><p></p><p></p><p></p>
       <h2 class="page-heading">
         <%= @user.nickname %>さんの依頼
       </h2>
@@ -68,9 +69,9 @@
           </div>
             <div class='item-info'>
               <h3 class='item-name'>
-                <%= post.user.nickname %>さんの依頼<h2><%= link_to post_path(post.id) do %><%= post.title %><% end %>&#x1f91d;
+                <%= link_to post_path(post.id) do %><%= post.title %><% end %>&#x1f91d;
               <span>お小遣い<%= post.price %>円<br></span>
-              </h3></h2>
+              </h3>
       <% if user_signed_in? && current_user.id == post.user_id %>
         <%= link_to "編集", edit_post_path(post.id), class: 'btn btn--yellow btn--cubic' %>
         <%= link_to "削除",post_path(post.id), method: :delete, class: 'btn btn--yellow btn--cubic' %>

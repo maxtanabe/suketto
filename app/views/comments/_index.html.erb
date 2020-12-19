@@ -1,10 +1,7 @@
-<!-- コメント内容(２件) ------------------------------------------------------------------>
-<%= @comments.count %>件のコメント
-  <h6 class="more" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">もっと見る....</h6>
-    <% @comments.first(2).each do |comment| %>
+    <% @comments.each do |comment| %>
       <% unless comment.id.nil? %>
         <li class="comment-container" id="test-<%=comment.id%>">
-          <div id="comment-box">
+          <div class="comment-box">
             <div class="comment">
               <div class="comment-nickname">
                 <p><%= link_to "@#{comment.user.nickname}", user_path(comment.user.id) %></p>
@@ -28,7 +25,7 @@
       <% @comments.offset(2).each do |comment| %>
         <% unless comment.id.nil? %>
           <li class="comment-container" id="test-<%=comment.id%>">
-            <div id="comment-box">
+            <div class="comment-box">
               <div class="comment">
                 <div class="comment-nickname">
                   <p><%= link_to "@#{comment.user.nickname}", user_path(comment.user.id) %></p>

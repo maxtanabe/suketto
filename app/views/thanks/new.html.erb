@@ -1,0 +1,43 @@
+<div class="items-sell-contents">
+  <header class="items-sell-header">
+  </header>
+    <div class="items-sell-main">
+      <h2 class="items-sell-title">お手伝い完了後の写真を投稿</h2>
+        <%= form_with(model: [@post, @thank], url: post_thanks_path(@post.id),local: true )do |f| %>
+          <%= render 'shared/error_messages', model: f.object %>
+            <div class="img-upload">
+              <div class="weight-bold-text">
+                写真を撮影
+                  <span class="indispensable">必須</span>
+              </div>
+                <div class="click-upload">
+                 <p>クリックしてファイルをアップロード</p>
+                   <%= f.file_field :image, id:"item-image" %>
+             </div>
+      </div>
+        <div class="new-items">
+          <div class="weight-bold-text">
+            一言メッセージ
+              <span class="indispensable">必須</span>
+          </div>
+            <%= f.text_area :title, class:"items-text", id:"item-name", placeholder:"例）キャベツの収穫終わりにパシャリ", maxlength:"30" %>
+        </div>
+        <%# 下部ボタン %>
+          <div class="sell-btn-contents">
+            <%= f.submit "投稿する", class:"sell-btn" %>
+              <%=link_to 'もどる', :back, class:"back-btn" %>
+          </div>
+      </div>
+    <% end %>
+
+  <footer class="items-sell-footer">
+    <ul class="menu">
+      <li><a href="#">プライバシーポリシー</a></li>
+      <li><a href="#">すけっと利用規約</a></li>
+      <li><a href="#">特定商取引に関する表記</a></li>
+    </ul>
+      <p class="inc">
+        すけっと ~福井県版~
+      </p>
+  </footer>
+</div>

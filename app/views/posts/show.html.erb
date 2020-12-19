@@ -1,83 +1,86 @@
-    <body>
-    <header>
-      <div class="heading">
-            <%= link_to root_path, class: 'submit' do %>
-            <%= image_tag 'すけっと.png' , size: '150x50' ,class: "purchase-btn-icon" %>
-            <% end %>
+<body>
+  <header>
+    <div class="heading">
+      <%= link_to root_path, class: 'submit' do %>
+        <%= image_tag 'すけっと.png' , size: '150x50' ,class: "purchase-btn-icon" %>
+      <% end %>
+    </div>
       </div>
-      </div>
-      <div class="navbar">
-        <ul class="nav-lists">
-           <% if user_signed_in? %>
-            <li>&#x1f3e0;おかえりなさい<%= current_user.nickname %>さん</li>
-            <li>&#x1f933;<%= link_to user_path(current_user.id), method: :get do %><%= current_user.nickname %>さんのページ<% end %></li>
-            <li>&#x1f622;<%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
+        <div class="navbar">
+          <ul class="nav-lists">
+            <% if user_signed_in? %>
+              <li>&#x1f3e0;おかえりなさい<%= current_user.nickname %>さん</li>
+              <li>&#x1f933;<%= link_to user_path(current_user.id), method: :get do %><%= current_user.nickname %>さんのページ<% end %></li>
+              <li>&#x1f622;<%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
             <% else %>
-            <li>&#x1f60a;<%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
-            <li>&#x1f60a;<%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
-            <li>&#x1f60a;ふるさとの納税サービス</li>
+              <li>&#x1f60a;<%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
+              <li>&#x1f60a;<%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+              <li>&#x1f60a;ふるさとの納税サービス</li>
             <% end %>
-        </ul>
-      </div>
-    </header>
-
-<div class="main">
-  <div class="inner">
-    <div class="user__wrapper">
-      <h2 class="page-heading">
-        <%= @post.user.nickname %>さんの依頼
-      </h2>
-      <div class="user__card">
-      <li class='list'>
-      <div class="thanx">
-        <div class='item-img-content'>
-        <video src=<%= rails_blob_path(@post.video) %> type="video/mp4", controls></video>
-        <% if @post.post_order.present?  %>
-          <p class="text">お手伝いありがとう</p>
-        <% else %>
-        <% if user_signed_in? && current_user.id == @post.user.id %>
-          <div id="comment-create">
-            <%= link_to '依頼完了', order_post_path(@post.id), method: :post, class:"btn btn--yellow btn--cubic" %>
-          </div>
-        <% end %>
-        <% end %>
+          </ul>
         </div>
-      </div>
-        <div class='item-info'>
-          <h3 class='item-name'>
-            <%= @post.user.nickname %>さんの依頼<h2><%= @post.title %>&#x1f91d;
-              <span>お小遣い<%= @post.price %>円<br></span>
-          </h3></h2>
-            <div class="girl_talk_set">
-              <div class="icon-box">
-                <%= image_tag "girl.png", size: '40x40'  ,class:"girl-icon" %>
-              </div>
-                <div class="girl_talk">トークルームでやり取り<p>完了したら依頼者は依頼完了をクリック</p></div>
-            </div>
-              <div class="row">
-                <ul>
-                  <li class="comment-create">
-                    <h3 class="text-left title">トークルーム</h3>
-                  </li>
-                  <li class="comments_area">
-                    <%= render partial: 'comments/index', locals: { comments: @comments } %>
-                  </li>
-                </ul>
-              <% if user_signed_in? %>
-                <div id="comment-create">
-                  <h3 class="text-left">コメントを投稿</h3>
-                    <%= render partial: 'comments/form', locals: { comment: @comment, post: @post } %>
+  </header>
+  <p></p><p></p><p></p><p></p>
+  <div class="main">
+    <div class="inner">
+      <div class="user__wrapper">
+        <h2 class="page-heading">
+          <%= @post.user.nickname %>さんの依頼
+        </h2>
+          <div class="user__card">
+            <li class='list'>
+              <div class="thanx">
+                <div class='item-img-content'>
+                  <video src=<%= rails_blob_path(@post.video) %> type="video/mp4", controls></video>
+                  <% if @post.post_order.present?  %>
+                    <p class="text">お手伝いありがとう</p>
+                    <div id="comment-create">
+                      <%= link_to '「みんなのありがとう」に投稿する', new_post_thank_path(@post.id), class:"btn btn--yellow btn--cubic" %>
+                    </div>
+                  <% else %>
+                  <% if user_signed_in? && current_user.id == @post.user.id %>
+                    <div id="comment-create">
+                      <%= link_to '依頼完了', order_post_path(@post.id), method: :post, class:"btn btn--yellow btn--cubic" %>
+                    </div>
+                  <% end %>
+                  <% end %>
                 </div>
-              <% end %>
-            </div>
-         </div>
-      </li>
+              </div>
+                <div class='item-info'>
+                  <h3 class='item-name'>
+                    <%= @post.title %>&#x1f91d;
+                    <span>お小遣い<%= @post.price %>円<br></span>
+                  </h3>
+                <div class="girl_talk_set">
+                  <div class="icon-box">
+                    <%= image_tag "girl.png", size: '40x40'  ,class:"girl-icon" %>
+                  </div>
+                  <div class="girl_talk">
+                    すけっとガイドはこちらから
+                  </div>
+                </div>
+                <div class="row">
+                  <ul>
+                    <li class="comment-create">
+                      <h3 class="text-left title">トークルーム</h3>
+                    </li>
+                    <li class="comments_area">
+                      <%= render partial: 'comments/index', locals: { comments: @comments } %>
+                    </li>
+                  </ul>
+                  <% if user_signed_in? %>
+                    <div id="comment-create">
+                      <h3 class="text-left">コメントを投稿</h3>
+                      <%= render partial: 'comments/form', locals: { comment: @comment, post: @post } %>
+                    </div>
+                  <% end %>
+                </div>
+            </li>
+          </div>
       </div>
     </div>
   </div>
-</div>
-
     <footer>
       <p>すけっと ~福井県版~ </p>
     </footer>
-     </body>
+</body>
