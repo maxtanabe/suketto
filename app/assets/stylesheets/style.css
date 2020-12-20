@@ -572,3 +572,11 @@ a{
 a:hover{
   color :rgba(247, 136, 210, 0.4); 
 }
+
+
+/* comment要素位置調整*/
+
+
+.comment_left {
+	margin-right: 665px;
+}

@@ -18,13 +18,10 @@ consumer.subscriptions.create("MessageChannel", {
                   &nbsp;<a id="delete-btn", data-method="delete" href="/posts/${data.post.id}/comments/${data.id}"><button id="${data.id}">削除</button></a>
                   </div>`;
 
-    const messages = document.getElementById('collapseExample');
+    const messages = document.getElementById('row');
     const newMessage = document.getElementById('comment_content');
     messages.insertAdjacentHTML('beforeend', html);
     newMessage.value='';
-
-      var countComment = document.getElementsById('collapseExample').length;
-      console.log(countComment)
   }
 });
 })

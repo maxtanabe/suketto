@@ -59,7 +59,7 @@
                     すけっとガイドはこちらから
                   </div>
                 </div>
-                <div class="row">
+                <div id="row">
                   <ul>
                     <li class="comment-create">
                       <h3 class="text-left title">トークルーム</h3>
@@ -68,6 +68,9 @@
                       <%= render partial: 'comments/index', locals: { comments: @comments } %>
                     </li>
                   </ul>
+
+                </div>
+                <div class="comment_left">
                   <% if user_signed_in? %>
                     <div id="comment-create">
                       <h3 class="text-left">コメントを投稿</h3>
