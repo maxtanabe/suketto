@@ -3,7 +3,7 @@ body {
   font-size: 14px;
   color: #333;
   margin: 0 auto;
-  font-family: 'Arial',YuGothic,'Yu Gothic','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','メイリオ', Meiryo,'ＭＳ ゴシック',sans-serif;
+  font-family: "HiraKakuProN-W6" ;
 }
 
 h1,h2,h3,h4,h5,h6,p {
@@ -14,6 +14,10 @@ h1,h2,h3,h4,h5,h6,p {
 ul,li {
   padding: 0;
   margin: 0;
+}
+
+.a {
+	color:black;
 }
 
 /* タブレット表示時 未指定 */
@@ -27,6 +31,7 @@ ul,li {
 .wrap {
 	overflow: hidden;
 }
+
 
 /* ヘッダー */
 header {
@@ -45,6 +50,10 @@ header {
   font-size: large;
 }
 
+.navbar a {
+	color:black;
+}
+
 .navbar {
   width: 50%;
   padding: 20px;
@@ -56,6 +65,8 @@ header {
   display: flex;
   justify-content: space-between;
 }
+
+
 
 .purchase-btn-icon {
   object-fit: cover;
@@ -75,14 +86,23 @@ a {
 }
 
 /* slide */
+/* slideに表示されるユーザー名 */
+.slide_name {
+	text-align: right;
+	margin-right: 30px;
+}
+
+.slide_name a {
+color: black;
+}
+
 /* 画面上部の帯 */
-#top_belt { max-width:660px;height:15px;background:#666;margin:0 auto; }
+#top_belt { max-width:600px;height:15px;background:rgb(187, 245, 200);margin:0 auto; }
 /*スライダー全体のコンテナー*/
 #stage {
 	position: relative;
 	max-width: 660px;
 	margin: 0 auto;
-	background:#666;
 	overflow: hidden;
 }
 /*全ラジオボタンを非表示に*/
@@ -101,10 +121,10 @@ a {
 #lb4 img { left: 49%;width:3%; }
 #lb5 img { left: 52%;width:3%; }
 /* 左右送りボタン */
-.pb, .nb { color:#fff;font-weight:bold; font-size:26px;display:block;position:absolute;top:45%;/*z-index:200;pointer-events:auto;*/}
+.pb, .nb { color:rgb(187, 245, 200);font-weight:bold; font-size:26px;display:block;position:absolute;top:45%;/*z-index:200;pointer-events:auto;*/}
 .pb { left:0%; }
 .nb { left:96%; }
-.pb:hover, .nb:hover { color:orange; cursor:pointer; }
+.pb:hover, .nb:hover { color:rgb(134, 243, 158); cursor:pointer; }
 /* stageが初期サイズ以下のなったときのサイズ */
 @media screen and (max-width: 660px) { .pb, .nb { font-size:18px; } }
 /*全表示スライドのコンテナー*/
@@ -125,6 +145,7 @@ a {
 }
 .pic img:nth-child(1) { width:90.9%; margin-left:4.55%; }
 .pic img:nth-child(2) { width:3%; bottom:-8.5%; /*2.5%;*/ }
+
 
 /*表示スライドをphotosの中に横並びで一列に並べる*/
 #photo1 { left: 0; }
@@ -290,23 +311,21 @@ a {
 	100% { left:-2640px; opacity:0; }
 }
 
-
-
-
-
 .messages {
-  width: 50vw;
-  margin: 0 auto;
+	width: 100%;
+	display: inline;
+  justify-content: center;
 }
 
 .message {
   display: flex;
   font-size: 18px;
-  margin: 0 0 16px 70px;
+	margin: 0 0 10px 330px;
 }
 
 .message-date {
-  padding-right: 40px;
+	padding: 0 15px 15px 40px;
+	display: inline;
 }
 
 /* 最近のありがとう */
@@ -362,7 +381,7 @@ a {
   border: 1px solid white;
   background-color: rgb(0, 191, 45);
   color:white;
-  display: block;
+	display: block;
 }
 
 
@@ -434,14 +453,12 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 
 .list {
   flex-direction: column;
   align-items: center;
   padding: 20px 210px;
-
 }
 
 
@@ -471,6 +488,10 @@ footer {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+}
+
+.user__card a {
+	color:black;
 }
 
 /* 依頼完了 */
@@ -530,7 +551,11 @@ footer {
   top: 0;
   left: -10px;
 }
- 
+
+.girl_talk a {
+	color:black;
+}
+
 .icon-box {
   width: 40px;
   height: 40px;
@@ -578,5 +603,89 @@ a:hover{
 
 
 .comment_left {
-	margin-right: 665px;
+	margin-right: 51%;
 }
+
+.comment a {
+	color:black;
+}
+
+.comment a:hover{
+  color :rgba(247, 136, 210, 0.4); 
+}
+
+/* すけっとガイド*/
+.cp_qa *, .cp_qa *:after, .cp_qa *:before {
+	font-family: 'FontAwesome', sans-serif;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.cp_qa dt {
+	position: relative;
+	margin: 0 0 1.5em 0;
+}
+.cp_qa dd {
+	position: relative;
+	margin: 0 0 2em 0;
+	padding: 0 0 1.5em 2em;
+	border-bottom: 1px dotted #0097a7;
+}
+.cp_qa dt::before, .cp_qa dd::before {
+	font-size: 1.2em;
+	margin: 0 0.5em 0 0;
+	color: #ffffff;
+	border-radius: 50%;
+	display: inline-block;
+	width: 1.3em;
+	height: 1.3em;
+	line-height: 1.2em;
+}
+.cp_qa dt::before {
+	padding: 0.1em 0.3em;
+	content: '\f128';
+	background: rgba(247, 136, 210, 0.4);
+}
+.cp_qa dd::before {
+	padding: 0.12em 0.45em;
+	content: '\f12a';
+	background: #0097a7;
+}
+.cp_qa dt::after, .cp_qa dd::after {
+	position: absolute;
+	top: 0.5em;
+	display: inline-block;
+	width: 0;
+	height: 0;
+	content: '';
+	border-width: 5px 0 5px 5px;
+	border-style: solid;
+}
+.cp_qa dt::after {
+	left: 1.5em;
+	border-color: transparent transparent transparent rgba(247, 136, 210, 0.4);
+}
+.cp_qa dd::after {
+	left: 3.5em;
+	border-color: transparent transparent transparent #0097a7;
+}
+
+/* /backボタン */
+
+.guide-botann {
+	display: flex;
+	align-items: center;
+}
+
+.back-botann {
+  background: #aaa;
+  border: 1px solid #aaa;
+  color: #fff;
+  padding: 10px 3%;
+  text-decoration: none;
+}
+
+/* /girlトーク */
+
+.girl_left {
+}
+

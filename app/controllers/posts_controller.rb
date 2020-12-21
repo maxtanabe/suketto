@@ -5,8 +5,9 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all.order("created_at DESC")
-    @thanks = Thank.order("RAND()").limit(4)
+    @thanks = Thank.order("RAND()").limit(5)
   end
+
   def new
     @post = Post.new
   end

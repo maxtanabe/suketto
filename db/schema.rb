@@ -50,12 +50,6 @@ ActiveRecord::Schema.define(version: 2020_12_17_131400) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "dms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "content"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "post_orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "post_id"
     t.datetime "created_at", precision: 6, null: false
@@ -74,12 +68,10 @@ ActiveRecord::Schema.define(version: 2020_12_17_131400) do
 
   create_table "thanks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
-    t.bigint "user_id", null: false
-    t.bigint "post_id", null: false
+    t.integer "user_id"
+    t.integer "post_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["post_id"], name: "index_thanks_on_post_id"
-    t.index ["user_id"], name: "index_thanks_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -103,6 +95,4 @@ ActiveRecord::Schema.define(version: 2020_12_17_131400) do
   add_foreign_key "cards", "users"
   add_foreign_key "post_orders", "posts"
   add_foreign_key "posts", "users"
-  add_foreign_key "thanks", "posts"
-  add_foreign_key "thanks", "users"
 end

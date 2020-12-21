@@ -7,149 +7,127 @@
       <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-  <div class="wrap">
-    <header>
-      <div class="heading">
-            <%= link_to root_path, class: 'submit' do %>
-            <%= image_tag 'すけっと.png' , size: '150x50' ,class: "purchase-btn-icon" %>
-            <% end %>
+    <div class="wrap">
+      <%= render "shared/header" %>
+        <div class="contents">
+          <p></p><p></p><p></p><p></p>
+            <div class="slide">
+              <!-- 画面上部の帯 -->
+                <div id="top_belt"></div>
+              <!-- スライド表示枠 -->
+                <div id="stage">
+              <!-- スライド切換えボタン用ラジオボタン -->
+                <input type="radio" id="r1" name="gal">
+                <input type="radio" id="r2" name="gal">
+                <input type="radio" id="r3" name="gal">
+                <input type="radio" id="r4" name="gal">
+                <input type="radio" id="r5" name="gal">
+              <!-- 送りボタン用ラジオボタン -->
+                <input type="radio" id="back1" name="gal"><input type="radio" id="next1" name="gal">
+                <input type="radio" id="back2" name="gal"><input type="radio" id="next2" name="gal">
+                <input type="radio" id="back3" name="gal"><input type="radio" id="next3" name="gal">
+                <input type="radio" id="back4" name="gal"><input type="radio" id="next4" name="gal">
+                <input type="radio" id="back5" name="gal"><input type="radio" id="next5" name="gal">
+              <!-- 現スライド標示ボタンのラジオボタンとの関連付け -->
+                <label for="r1" id="lb1" class="circ"><%= image_tag @thanks[0].image %></label>
+                <label for="r2" id="lb2" class="circ"><%= image_tag @thanks[1].image %></label>
+                <label for="r3" id="lb3" class="circ"><%= image_tag @thanks[2].image %></label>
+                <label for="r4" id="lb4" class="circ"><%= image_tag @thanks[3].image %></label>
+                <label for="r5" id="lb5" class="circ"><%= image_tag @thanks[4].image %></label>
+              <!-- スライド群 -->
+                <div id="photos">
+  	          <!-- スライド1 -->
+                <div id="photo1" class="pic">
+              <!-- スライド写真と現スライド標示ボタン -->
+      	        <%= image_tag @thanks[0].image, size: '600x338' %><%= image_tag 'top2.png' %>
+                <div class="slide_name">
+                <%= link_to user_path(@thanks[0].user.id) do %>
+                @<%= @thanks[0].user.nickname%>さんのありがとう
+                <% end %>
+                </div>
+              <!-- 送りボタンの表示とラジオボタンとの関連付け -->
+                <label for="back1"><span class="pb">＜</span></label>
+                <label for="next1"><span class="nb">＞</span></label>
+            </div>      
+            <div id="photo2" class="pic">
+      	      <%= image_tag @thanks[1].image, size: '600x338' %><%= image_tag 'top2.png' %>
+              <div class="slide_name">
+                <%= link_to user_path(@thanks[1].user.id) do %>
+                  @<%= @thanks[1].user.nickname%>さんのありがとう
+                <% end %>
+              </div>
+              <label for="back2"><span class="pb">＜</span></label>
+              <label for="next2"><span class="nb">＞</span></label>
+            </div>
+            <div id="photo3" class="pic">
+      	      <%= image_tag @thanks[2].image, size: '600x338' %><%= image_tag 'top2.png' %>
+              <div class="slide_name">
+                <%= link_to user_path(@thanks[2].user.id) do %>
+                  @<%= @thanks[2].user.nickname%>さんのありがとう
+                <% end %>
+              </div>
+              <label for="back3"><span class="pb">＜</span></label>
+              <label for="next3"><span class="nb">＞</span></label>
+            </div>
+            <div id="photo4" class="pic">
+      	      <%= image_tag @thanks[3].image, size: '600x338' %><%= image_tag 'top2.png' %>
+              <div class="slide_name">
+                <%= link_to user_path(@thanks[3].user.id) do %>
+                  @<%= @thanks[3].user.nickname%>さんのありがとう
+                <% end %>
+              </div>
+              <label for="back4"><span class="pb">＜</span></label>
+              <label for="next4"><span class="nb">＞</span></label>
+            </div>
+            <div id="photo5" class="pic">
+      	      <%= image_tag @thanks[4].image, size: '600x338' %><%= image_tag 'top2.png' %>
+              <div class="slide_name">
+                <%= link_to user_path(@thanks[4].user.id) do %>
+                  @<%= @thanks[4].user.nickname%>さんのありがとう
+                <% end %>
+              </div>
+              <label for="back5"><span class="pb">＜</span></label>
+              <label for="next5"><span class="nb">＞</span></label>
+            </div>
+          </div>
+        <!-- stageの高さの確保 -->
+        <div style="padding:28%;"></div>
       </div>
-        <div class="navbar">
-          <ul class="nav-lists">
-            <% if user_signed_in? %>
-            <li>&#x1f3e0;おかえりなさい<%= current_user.nickname %>さん</li>
-            <li>&#x1f933;<%= link_to user_path(current_user.id), method: :get do %><%= current_user.nickname %>さんのページ<% end %></li>
-            <li>&#x1f622;<%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
-            <% else %>
-            <li>&#x1f60a;<%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
-            <li>&#x1f60a;<%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
-            <li>&#x1f60a;ふるさとの納税サービス</li>
-            <% end %>
+    </div>
+      <p></p><p></p><p></p><p></p>
+        <div class="girl_center">
+          <div class="girl_talk_set">
+            <div class="icon-box">
+              <%= image_tag "girl.png", size: '40x40'  ,class:"girl-icon" %>
+            </div>
+            <div class="girl_talk">ここには、お手伝いが完了した<p>「みんなのありがとう」が表示されるよ！</p></div>
+          </div>
+        </div>
+      <p></p><p></p><p></p><p></p>
+        <div class="upper-content"> 
+          <ul class="messages">
+            <li class="message">
+              <div class="message-date"><%= @thanks[0].created_at.to_s(:datetime_jp) %></div>
+              <div><b><%= @thanks[0].title %></b></div>
+            </li>
+            <li class="message">
+              <div class="message-date"><%= @thanks[0].created_at.to_s(:datetime_jp) %></div>
+              <div><b><%= @thanks[1].title %></b></div>
+            </li>
+            <li class="message">
+              <div class="message-date"><%= @thanks[0].created_at.to_s(:datetime_jp) %></div>
+              <div><b><%= @thanks[2].title %></b></div>
+            </li>
+            <li class="message">
+              <div class="message-date"><%= @thanks[0].created_at.to_s(:datetime_jp) %></div>
+              <div><b><%= @thanks[3].title %></b></div>
+            </li>
+            <li class="message">
+              <div class="message-date"><%= @thanks[0].created_at.to_s(:datetime_jp) %></div>
+              <div><b><%= @thanks[4].title %></b></div>
+            </li>
           </ul>
         </div>
-    </header>
-      <div class="contents">
-                <p></p><p></p><p></p><p></p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <div class="slide">
-<!-- 画面上部の帯 -->
-<div id="top_belt"></div>
-<!-- スライド表示枠 -->
-<div id="stage">
-  <!-- スライド切換えボタン用ラジオボタン -->
-  <input type="radio" id="r1" name="gal">
-  <input type="radio" id="r2" name="gal">
-  <input type="radio" id="r3" name="gal">
-  <input type="radio" id="r4" name="gal">
-  <input type="radio" id="r5" name="gal">
-  <!-- 送りボタン用ラジオボタン -->
-  <input type="radio" id="back1" name="gal"><input type="radio" id="next1" name="gal">
-  <input type="radio" id="back2" name="gal"><input type="radio" id="next2" name="gal">
-  <input type="radio" id="back3" name="gal"><input type="radio" id="next3" name="gal">
-  <input type="radio" id="back4" name="gal"><input type="radio" id="next4" name="gal">
-  <input type="radio" id="back5" name="gal"><input type="radio" id="next5" name="gal">
-  <!-- 現スライド標示ボタンのラジオボタンとの関連付け -->
-                <% if @thanks.present? %>
-               <% @thanks.each do |thanks| %>
-  <label for="r1" id="lb1" class="circ"><%= image_tag thanks.image %></label>
-  <label for="r2" id="lb2" class="circ"><%= image_tag thanks.image %></label>
-  <label for="r3" id="lb3" class="circ"><%= image_tag thanks.image %></label>
-  <label for="r4" id="lb4" class="circ"><%= image_tag thanks.image %></label>
-  <label for="r5" id="lb5" class="circ"><%= image_tag thanks.image %></label>
-
-  <!-- スライド群 -->
-  <div id="photos">
-  	  <!-- スライド1 -->
-      <div id="photo1" class="pic">
-        <!-- スライド写真と現スライド標示ボタン -->
-      	<%= image_tag thanks.image, size: '600x338' %><%= image_tag 'top2.png' %>
-        <!-- 送りボタンの表示とラジオボタンとの関連付け -->
-        <label for="back1"><span class="pb">＜</span></label>
-        <label for="next1"><span class="nb">＞</span></label>
-      </div>      
-      <div id="photo2" class="pic">
-      	<%= image_tag thanks.image, size: '600x338' %><%= image_tag 'top2.png' %>
-        <label for="back2"><span class="pb">＜</span></label>
-        <label for="next2"><span class="nb">＞</span></label>
-      </div>
-      <div id="photo3" class="pic">
-      	<%= image_tag thanks.image, size: '600x338' %><%= image_tag 'top2.png' %>
-        <label for="back3"><span class="pb">＜</span></label>
-        <label for="next3"><span class="nb">＞</span></label>
-      </div>
-      <div id="photo4" class="pic">
-      	<%= image_tag thanks.image, size: '600x338' %><%= image_tag 'top2.png' %>
-        <label for="back4"><span class="pb">＜</span></label>
-        <label for="next4"><span class="nb">＞</span></label>
-      </div>
-      <div id="photo5" class="pic">
-      	<%= image_tag thanks.image, size: '600x338' %><%= image_tag 'top2.png' %>
-        <label for="back5"><span class="pb">＜</span></label>
-        <label for="next5"><span class="nb">＞</span></label>
-      </div>
-  </div>
-                  <% end %>
-            <% end %>
-  <!-- stageの高さの確保 -->
-  <div style="padding:28%;"></div>
-</div>
-
-        </div>
-
-
-
-
-
-
-
-
-          <p></p><p></p><p></p><p></p>
-            <div class="girl_center">
-              <div class="girl_talk_set">
-                <div class="icon-box">
-                  <%= image_tag "girl.png", size: '40x40'  ,class:"girl-icon" %>
-                </div>
-                  <div class="girl_talk">ここには、お手伝いが完了した<p>「みんなのありがとう」が表示されるよ！</p></div>
-              </div>
-            </div>
-          <p></p><p></p><p></p><p></p>
-      <div class="upper-content"> 
-        <ul class="messages">
-          <li class="message">
-            <div class="message-date">2020/01/03</div>
-            <div>坂井市の東尋坊で<b>ふれあい広場の手伝い</b></div>
-          </li>
-          <li class="message">
-            <div class="message-date">2020/01/02</div>
-            <div>福井市の故郷老人ホームで<b>書き初め大会</b></div>
-          </li>
-          <li class="message">
-            <div class="message-date">2019/12/24</div>
-            <div>福井市の故郷老人ホームで<b>クリスマス会</b></div>
-          </li>
-          <li class="message">
-            <div class="message-date">2019/11/15</div>
-            <div>越前市の今村さん宅で<b>越前ガニ収穫後みんなで食事</b></div>
-          </li>
-          <li class="message">
-            <div class="message-date">2019/10/28</div>
-            <div>鯖江市の内藤さん宅で<b>キャベツ収穫</b></div>
-          </li>
-        </ul>
-      </div>
       <p></p><p></p><p></p><p></p>
         <div class="girl_center">
           <div class="girl_talk_set">
@@ -158,6 +136,7 @@
             </div>
               <div class="girl_talk">「みんなのお手伝い」</div>
           </div>
+          <p></p><p></p><p></p><p></p>
         </div>
           <div class="middle-content">
            <ul class='item-lists'>
@@ -203,9 +182,7 @@
     </div>
   </div>
 </div>
-  <footer>
-    <p>すけっと ~福井県版~ </p>
-  </footer>
+  <%= render "shared/footer" %>
   </div>
 </body>
 </html>

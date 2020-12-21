@@ -12,7 +12,6 @@ class UsersController < ApplicationController
       customer = Payjp::Customer.retrieve(card.customer_token) # 先程のカード情報を元に、顧客情報を取得
       @card = customer.cards.first
     end
-    @post = Post.find(params[:id])
   end
 
   private

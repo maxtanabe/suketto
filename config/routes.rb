@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'cards/new'
+  get 'guides/new'
   devise_for :users, controllers: { registrations: 'users/registrations' }
   root to: "posts#index"
   resources :users
@@ -11,4 +12,5 @@ Rails.application.routes.draw do
     end
   end
   resources :cards, only: [:new, :create]
+  resources :guides, only: [:new]
 end

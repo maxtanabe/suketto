@@ -6,8 +6,6 @@
 </div>
 <br></br>
 
----
-
 # 目次
 1. [このアプリケーションについて](#このアプリケーションについて)
 1. [機能紹介](#機能紹介)
@@ -17,8 +15,6 @@
 1. [最後に](#最後に)
 
 <br></br>
-
---- 
 
 # このアプリケーションについて
 
@@ -49,8 +45,6 @@
 「おじいちゃん」「おばあちゃん」の為のものだから、今回は「福井県版」としています。  
 <br></br>
 
---- 
-
 # 機能紹介
 
 ## [主な機能]
@@ -66,14 +60,10 @@
 1. Rspec / Rubocopによるテスト機能
 <br></br>
 
---- 
-
 # 開発環境
 
 Ruby/RubyonRails/Html/Css/JavaScript/MySQL/Github/VisualStudioCode
 <br></br>
-
---- 
 
 # データベース設計
 
@@ -81,8 +71,6 @@ Ruby/RubyonRails/Html/Css/JavaScript/MySQL/Github/VisualStudioCode
 
 ![suketto_ER](https://user-images.githubusercontent.com/73727547/102718602-59d9cc80-432c-11eb-9d4a-c4838d90fc89.png)
 <br></br>
-
----
 
 ## [テーブル設計]
 <br></br>
@@ -192,15 +180,15 @@ Ruby/RubyonRails/Html/Css/JavaScript/MySQL/Github/VisualStudioCode
 ID: suketto  
 PW: 1234  
 ## [テストユーザー等]
-出品者用アカウント  
+依頼者用アカウント  
 ID: test1@gmail.com  
 PW: 111111a  
 
-購入者用アカウント
-ID: test2@mail.com  
+すけっと者用アカウント
+ID: test2@gmail.com  
 PW: 111111a  
 
-購入者用クレジットカード情報  
+依頼者用クレジットカード情報  
 カード番号: 4242424242424242  
 有効期限: 12/25  
 セキュリティコード: 123  

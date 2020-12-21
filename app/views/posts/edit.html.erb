@@ -1,3 +1,4 @@
+<body>
 <div class="items-sell-contents">
   <header class="items-sell-header">
   </header>
@@ -68,7 +69,7 @@
     <%# 下部ボタン %>
     <div class="sell-btn-contents">
       <%= f.submit "変更する", class:"sell-btn" %>
-      <%=link_to 'もどる', user_path(@post.user.id), class:"back-btn" %>
+      <%=link_to 'もどる', :back, class:"back-btn" %>
     </div>
     </div>
   <% end %>
@@ -84,3 +85,4 @@
     </p>
   </footer>
 </div>
+</body>
