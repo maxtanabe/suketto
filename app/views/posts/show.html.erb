@@ -5,7 +5,9 @@
     <div class="inner">
       <div class="user__wrapper">
         <h2 class="page-heading">
-          <%= @post.user.nickname %>さんの依頼
+          <%= link_to  user_path(@post.user.id) do %>
+            <%= @post.user.nickname %>さんの依頼
+          <% end %>
         </h2>
           <div class="user__card">
             <li class='list'>

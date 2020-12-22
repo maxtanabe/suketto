@@ -455,6 +455,10 @@ footer {
   align-items: center;
 }
 
+.user__wrapper a {
+	color:black;
+}
+
 .list {
   flex-direction: column;
   align-items: center;
@@ -488,10 +492,6 @@ footer {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-}
-
-.user__card a {
-	color:black;
 }
 
 /* 依頼完了 */
