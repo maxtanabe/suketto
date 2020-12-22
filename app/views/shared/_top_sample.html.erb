@@ -1,0 +1,109 @@
+        <div class="contents">
+          <p></p><p></p><p></p><p></p>
+            <div class="slide">
+              <!-- 画面上部の帯 -->
+                <div id="top_belt"></div>
+              <!-- スライド表示枠 -->
+                <div id="stage">
+              <!-- スライド切換えボタン用ラジオボタン -->
+                <input type="radio" id="r1" name="gal">
+                <input type="radio" id="r2" name="gal">
+                <input type="radio" id="r3" name="gal">
+                <input type="radio" id="r4" name="gal">
+                <input type="radio" id="r5" name="gal">
+              <!-- 送りボタン用ラジオボタン -->
+                <input type="radio" id="back1" name="gal"><input type="radio" id="next1" name="gal">
+                <input type="radio" id="back2" name="gal"><input type="radio" id="next2" name="gal">
+                <input type="radio" id="back3" name="gal"><input type="radio" id="next3" name="gal">
+                <input type="radio" id="back4" name="gal"><input type="radio" id="next4" name="gal">
+                <input type="radio" id="back5" name="gal"><input type="radio" id="next5" name="gal">
+              <!-- 現スライド標示ボタンのラジオボタンとの関連付け -->
+                <label for="r1" id="lb1" class="circ"><%= image_tag "sample1.png" %></label>
+                <label for="r2" id="lb2" class="circ"><%= image_tag "sample2.png" %></label>
+                <label for="r3" id="lb3" class="circ"><%= image_tag "sample3.png" %></label>
+                <label for="r4" id="lb4" class="circ"><%= image_tag "sample4.png" %></label>
+                <label for="r5" id="lb5" class="circ"><%= image_tag "sample5.png" %></label>
+              <!-- スライド群 -->
+                <div id="photos">
+  	          <!-- スライド1 -->
+                <div id="photo1" class="pic">
+              <!-- スライド写真と現スライド標示ボタン -->
+      	        <%= image_tag "sample1.png", size: '600x338' %><%= image_tag 'top2.png' %>
+                <div class="slide_name">
+                  @田辺さんのありがとう
+                </div>
+              <!-- 送りボタンの表示とラジオボタンとの関連付け -->
+                <label for="back1"><span class="pb">＜</span></label>
+                <label for="next1"><span class="nb">＞</span></label>
+            </div>      
+            <div id="photo2" class="pic">
+      	      <%= image_tag "sample2.png", size: '600x338' %><%= image_tag 'top2.png' %>
+              <div class="slide_name">
+                @原田さんのありがとう
+              </div>
+              <label for="back2"><span class="pb">＜</span></label>
+              <label for="next2"><span class="nb">＞</span></label>
+            </div>
+            <div id="photo3" class="pic">
+      	      <%= image_tag "sample3.png", size: '600x338' %><%= image_tag 'top2.png' %>
+              <div class="slide_name">
+                @森田さんのありがとう
+              </div>
+              <label for="back3"><span class="pb">＜</span></label>
+              <label for="next3"><span class="nb">＞</span></label>
+            </div>
+            <div id="photo4" class="pic">
+      	      <%= image_tag "sample4.png", size: '600x338' %><%= image_tag 'top2.png' %>
+              <div class="slide_name">
+                @上田さんのありがとう
+              </div>
+              <label for="back4"><span class="pb">＜</span></label>
+              <label for="next4"><span class="nb">＞</span></label>
+            </div>
+            <div id="photo5" class="pic">
+      	      <%= image_tag "sample5.png", size: '600x338' %><%= image_tag 'top2.png' %>
+              <div class="slide_name">
+                @川上さんのありがとう
+              </div>
+              <label for="back5"><span class="pb">＜</span></label>
+              <label for="next5"><span class="nb">＞</span></label>
+            </div>
+          </div>
+        <!-- stageの高さの確保 -->
+        <div style="padding:28%;"></div>
+      </div>
+    </div>
+      <p></p><p></p><p></p><p></p>
+        <div class="girl_center">
+          <div class="girl_talk_set">
+            <div class="icon-box">
+              <%= image_tag "girl.png", size: '40x40'  ,class:"girl-icon" %>
+            </div>
+            <div class="girl_talk">ここには、お手伝いが完了した<p>「みんなのありがとう」が表示されるよ！</p></div>
+          </div>
+        </div>
+      <p></p><p></p><p></p><p></p>
+        <div class="upper-content"> 
+          <ul class="messages">
+            <li class="message">
+              <div class="message-date">2020年 12月 25日 18時 18分</div>
+              <div><b>田辺さん！ありがとうございました！</b></div>
+            </li>
+            <li class="message">
+              <div class="message-date">2020年 12月 24日 17時 17分</div>
+              <div><b>原田さん！ありがとうございました！</b></div>
+            </li>
+            <li class="message">
+              <div class="message-date">2020年 12月 23日 16時 16分</div>
+              <div><b>森田さん！ありがとうございました！</b></div>
+            </li>
+            <li class="message">
+              <div class="message-date">2020年 12月 22日 15時 15分</div>
+              <div><b>上田さん！ありがとうございました！</b></div>
+            </li>
+            <li class="message">
+              <div class="message-date">2020年 12月 21日 14時 14分</div>
+              <div><b>川上さん！ありがとうございました！</b></div>
+            </li>
+          </ul>
+        </div>
