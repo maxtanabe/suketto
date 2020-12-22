@@ -14,7 +14,7 @@
               <div class="thanx">
                 <div class='item-img-content'>
                   <video src=<%= rails_blob_path(@post.video) %> type="video/mp4", controls></video>
-                  <% if @post.post_order.present?  %>
+                  <% if @post.post_order.present? && user_signed_in? %>
                     <p class="text">お手伝いありがとう</p>
                     <div id="comment-create">
                       <%= link_to '「みんなのありがとう」に投稿する', new_post_thank_path(@post.id), class:"btn btn--yellow btn--cubic" %>

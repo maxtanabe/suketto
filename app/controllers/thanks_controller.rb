@@ -1,4 +1,6 @@
 class ThanksController < ApplicationController
+  before_action :authenticate_user!,only: [:new]
+
   def new
     @thank = Thank.new
     @post = Post.find(params[:post_id])
