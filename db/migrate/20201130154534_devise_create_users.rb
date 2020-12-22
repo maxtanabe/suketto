@@ -10,7 +10,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.date    :birth_date,         null: false
       t.integer :area_id,            null: false
       t.string  :address,            null: false
-      t.string  :phone_number,       null: false
+      t.string  :phone_number,       null: false 
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at
 
