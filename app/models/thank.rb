@@ -7,5 +7,4 @@ class Thank < ApplicationRecord
     validates :title
     validates :image
   end
-
 end

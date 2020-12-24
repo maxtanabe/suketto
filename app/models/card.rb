@@ -7,5 +7,3 @@ class Card < ApplicationRecord
   # end
   #   validates :cvc, numericality: true
 end
-
-

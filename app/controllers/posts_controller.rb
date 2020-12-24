@@ -1,11 +1,11 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!,except: [:index, :show]
-  before_action :jugment_user, only:[:edit]
-  before_action :find_post, only:[:edit, :update, :destroy, :show, :order]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :jugment_user, only: [:edit]
+  before_action :find_post, only: [:edit, :update, :destroy, :show, :order]
 
   def index
-    @posts = Post.all.order("created_at DESC")
-    @thanks = Thank.all.order("created_at DESC")
+    @posts = Post.all.order('created_at DESC')
+    @thanks = Thank.all.order('created_at DESC')
   end
 
   def new
@@ -33,9 +33,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    if current_user.id == @post.user_id
-       @post.destroy
-    end
+    @post.destroy if current_user.id == @post.user_id
     redirect_to user_path(@post.user.id)
   end
 
@@ -48,15 +46,16 @@ class PostsController < ApplicationController
 
   def order
     redirect_to new_card_path and return unless current_user.card.present?
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"] # 環境変数を読み込む
+
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY'] # 環境変数を読み込む
     customer_token = current_user.card.customer_token # ログインしているユーザーの顧客トークンを定義
     Payjp::Charge.create(
       amount: @post.price, # 商品の値段
       customer: customer_token, # 顧客のトークン
       currency: 'jpy' # 通貨の種類（日本円）
-      )
-      PostOrder.create(post_id: params[:id])
-      redirect_to root_path
+    )
+    PostOrder.create(post_id: params[:id])
+    redirect_to root_path
   end
 
   private
@@ -67,13 +66,10 @@ class PostsController < ApplicationController
 
   def jugment_user
     @post = Post.find(params[:id])
-    unless @post.user == current_user
-      redirect_to root_path
-    end
+    redirect_to root_path unless @post.user == current_user
   end
 
   def find_post
     @post = Post.find(params[:id])
   end
-
 end

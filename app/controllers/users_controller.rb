@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!,only: [:show]
+  before_action :authenticate_user!, only: [:show]
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts.order("created_at DESC")
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"] # 環境変数を読み込む
+    @posts = @user.posts.order('created_at DESC')
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY'] # 環境変数を読み込む
     card = Card.find_by(user_id: current_user.id) # ユーザーのid情報を元に、カード情報を取得
 
     if card.present?
@@ -17,9 +17,6 @@ class UsersController < ApplicationController
 
   def jugment_user
     @user = User.find(params[:id])
-    unless @user == current_user
-      redirect_to root_path
-    end
+    redirect_to root_path unless @user == current_user
   end
-
 end
