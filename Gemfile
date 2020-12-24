@@ -63,3 +63,4 @@ gem 'jquery-rails'
 gem 'payjp'
 gem 'rails-i18n'
 gem 'image_processing', '~> 1.2'
+gem "aws-sdk-s3", require: false

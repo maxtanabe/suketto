@@ -1,4 +1,5 @@
-<%= form_with  url: cards_path, id: 'charge-form', class: 'card-form',local: true do |f| %>
+<%= form_with model: @card, url: cards_path, id: 'charge-form', class: 'card-form',local: true do |f| %>
+<%# <%= render 'shared/error_messages', model: f.object %>
   <div class='account-page'>
     <div class='account-page__inner clearfix'>
       <div class='account-page__inner--left account-page__header'>

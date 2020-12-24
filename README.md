@@ -60,6 +60,9 @@
 1. Rspec / Rubocopによるテスト機能
 <br></br>
 
+## イメージ(※下記はデータがない場合の表示)
+![suketto1](https://user-images.githubusercontent.com/73727547/102951173-8c8fea80-450f-11eb-95f2-77ca6e2c7977.png)
+
 # 開発環境
 
 Ruby/RubyonRails/Html/Css/JavaScript/MySQL/Github/VisualStudioCode
@@ -172,13 +175,12 @@ Ruby/RubyonRails/Html/Css/JavaScript/MySQL/Github/VisualStudioCode
 
 <br></br>
 
----
 # 接続先情報
 
 ## [Basic認証]
 [すけっと](https://suketto2.herokuapp.com/)  
-ID: suketto  
-PW: 1234  
+ID: admin  
+PW: 2222  
 ## [テストユーザー等]
 依頼者用アカウント  
 ID: test1@gmail.com  
@@ -195,12 +197,11 @@ PW: 111111a
 
 ## 動作確認方法
 接続先およびログイン情報については、上記の通りです。  
-[「すけっとガイド」を閲覧下さい。](https://)  
+[「すけっとガイド」を閲覧下さい。](https://suketto2.herokuapp.com/guides/new)  
 確認後、ログアウト処理をお願いします。  
 
 <br></br>
 
---- 
 # 最後に
 「すけっと」をリリースし、ユーザーを獲得するためには各地域の協力が必要です。  
 今回であれば「福井県」の協力を得て、より良いアプリケーションにアップデートすることが中期の目標であり、長期としては地方の教育事業にも携われるものにしていきたいと思っています。

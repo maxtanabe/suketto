@@ -10,4 +10,7 @@ ja:
      post:
        title: お手伝いして欲しいこと
        price: 助っ人にあげるお小遣い
-       video: 撮影した
+       video: 撮影した動画
+     thank:
+       title: メッセージ
+       image: 写真

@@ -2,8 +2,8 @@ class User < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   devise :database_authenticatable, :registerable,:recoverable, :rememberable, :validatable
   attr_accessor :current_password
-  has_many :posts
-  has_many :thanks
+  has_many :posts, dependent: :destroy
+  has_many :thanks, dependent: :destroy
   has_many :comments, dependent: :destroy
   belongs_to :area
   has_one :card, dependent: :destroy
