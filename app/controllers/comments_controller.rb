@@ -6,7 +6,8 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     if @comment.save
       ActionCable.server.broadcast 'message_channel', content: @comment, user: @comment.user,
-                                                      date: @comment.created_at.to_s(:datetime_jp), id: @comment.id, post: @comment.post
+                                                      date: @comment.created_at.to_s(:datetime_jp), id: @comment.id, post: @comment.post,
+                                                      current_user: current_user
     end
   end
 

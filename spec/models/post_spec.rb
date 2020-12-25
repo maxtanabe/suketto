@@ -16,31 +16,31 @@ RSpec.describe Post, type: :model do
       it '投稿動画がないと投稿は保存できない' do
         @post.video = nil
         @post.valid?
-        expect(@post.errors.full_messages).to include("Video can't be blank")
+        expect(@post.errors.full_messages).to include("撮影した動画を入力してください")
       end
-
+      
       it '投稿タイトルがないと投稿は保存できない' do
         @post.title = nil
         @post.valid?
-        expect(@post.errors.full_messages).to include("Title can't be blank")
+        expect(@post.errors.full_messages).to include("お手伝いして欲しいことを入力してください")
       end
 
       it '投稿価格が空だと投稿は保存できない' do
         @post.price = nil
         @post.valid?
-        expect(@post.errors.full_messages).to include("Price can't be blank")
+        expect(@post.errors.full_messages).to include("助っ人にあげるお小遣いを入力してください")
       end
 
       it '投稿価格が¥500以下は保存できない' do
         @post.price = 200
         @post.valid?
-        expect(@post.errors.full_messages).to include('Price is not included in the list')
+        expect(@post.errors.full_messages).to include("助っ人にあげるお小遣いは一覧にありません")
       end
 
       it '投稿価格が¥5,000以上は保存できない' do
         @post.price = 6000
         @post.valid?
-        expect(@post.errors.full_messages).to include('Price is not included in the list')
+        expect(@post.errors.full_messages).to include("助っ人にあげるお小遣いは一覧にありません")
       end
     end
   end

@@ -6,7 +6,7 @@ FactoryBot.define do
     association :user
 
     after(:build) do |post|
-      post.video.attach(io: File.open('public/testvideo/test.mp4'), filename: 'test.mp4')
+      post.video.attach(io: File.open('public/testvideo/test.MOV'), filename: 'test.MOV')
     end
   end
 end
