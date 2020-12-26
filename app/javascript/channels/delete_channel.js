@@ -12,7 +12,7 @@ consumer.subscriptions.create("DeleteChannel", {
   received(data) {
 
     const test = document.getElementById(`${data.id}`)
-    const container = document.getElementById(`test-${data.id}`);
+    const container = document.getElementById(`data-test-${data.id}`);
     console.log(container)
     container.remove();
     
