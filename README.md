@@ -233,6 +233,8 @@ PW: 111111a
 ID: test2@gmail.com  
 PW: 111111a  
 
+<p><a href="public/testvideo/test.MOV" download="test.MOV">テスト用動画ファイルをダウンロード</a></p>
+
 ### 依頼者用クレジットカード情報  
 カード番号: 4242424242424242  
 有効期限: 12/25  
