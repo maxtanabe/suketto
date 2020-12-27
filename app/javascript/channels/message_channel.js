@@ -12,12 +12,15 @@ consumer.subscriptions.create("MessageChannel", {
 
   received(data) {
     
-    if (document.getElementById('row').dataset.id = data.current_user.id){
+    if (data.user.id === data.current_user.id){
       var de = `<a id="delete-btn", data-method="delete" href="/posts/${data.post.id}/comments/${data.id}"><button id="${data.id}">削除</button></a>` ;
+      console.log(document.getElementById('row').dataset.id = data.current_user.id)
+      console.log(data.current_user.id)
     }else{
       var de = "" ;
+      console.log("empty")
     };
-    debugger
+
     const html = `<div id="data-test-${data.id}">
                   <p><a href="/users/${data.user.id}">@${data.user.nickname}</a></p>
                   <span style="font-weight:bold;">${data.content.content}</span>
