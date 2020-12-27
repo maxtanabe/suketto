@@ -233,7 +233,13 @@ PW: 111111a
 ID: test2@gmail.com  
 PW: 111111a  
 
-<p><a href="public/testvideo/test.MOV" download="test.MOV">テスト用動画ファイルをダウンロード</a></p>
+### テスト用動画ファイルをダウンロード(お手伝い依頼用の動画)
+
+<p><a href="public/testvideo/test.MOV" download="test.MOV">ページ遷移後にDownloadをクリック</a></p>  
+
+### テスト用画像ファイルをダウンロード(「みんなのありがとう」に投稿する用の画像)
+
+<p><a href="public/testimage/test.jpg" download="test.jpg">ページ遷移後にDownloadをクリック</a></p>  
 
 ### 依頼者用クレジットカード情報  
 カード番号: 4242424242424242  
